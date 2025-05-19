@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sbabadag.github.io/sebawebstorage/sitemap.xml
