@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sbabadag.github.io/sebawebstorage/sitemap.xml
+Sitemap: https://selahattinbabadag.com/sitemap.xml
