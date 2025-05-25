@@ -1,6 +1,11 @@
 // Get the user's preferred language from localStorage or default to English
 let currentLang = localStorage.getItem('language') || 'en';
 
+// Initialize content when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    setLanguage(currentLang);
+});
+
 const metaTranslations = {
     en: {
         title: "SEBA Engineering & Consultancy | Structural Steel & Concrete Design Experts",
@@ -17,6 +22,11 @@ const metaTranslations = {
 };
 
 function setLanguage(lang) {
+    if (!translations[lang]) {
+        console.error(`Language ${lang} not supported`);
+        return;
+    }
+    
     currentLang = lang;
     localStorage.setItem('language', lang);
     updateContent();
@@ -35,32 +45,39 @@ function updateContent() {
     document.querySelectorAll('[data-lang-key]').forEach(element => {
         const key = element.getAttribute('data-lang-key');
         const keys = key.split('.');
-        let translation = translations[currentLang];        for (const k of keys) {
-            if (translation[k]) {
+        let translation = translations[currentLang];
+        
+        try {
+            for (const k of keys) {
                 translation = translation[k];
-            } else {
-                console.error(`Translation key not found: ${key}`);
-                translation = null;
-                break;
+                if (translation === undefined) {
+                    console.error(`Translation key not found: ${key}`);
+                    return;
+                }
             }
-        }
-        if (translation) {
+            
+            // Update element content
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translation;
             } else {
                 element.textContent = translation;
             }
+        } catch (error) {
+            console.error(`Error updating translation for key: ${key}`, error);
         }
     });
 
     // Update meta tags
-    document.title = metaTranslations[currentLang].title;
-    document.querySelector('meta[name="description"]').setAttribute('content', metaTranslations[currentLang].description);
-    document.querySelector('meta[property="og:title"]').setAttribute('content', metaTranslations[currentLang].ogTitle);
-    document.querySelector('meta[property="og:description"]').setAttribute('content', metaTranslations[currentLang].ogDescription);
+    if (metaTranslations[currentLang]) {
+        document.title = metaTranslations[currentLang].title;
+        document.querySelector('meta[name="description"]')?.setAttribute('content', metaTranslations[currentLang].description);
+        document.querySelector('meta[property="og:title"]')?.setAttribute('content', metaTranslations[currentLang].ogTitle);
+        document.querySelector('meta[property="og:description"]')?.setAttribute('content', metaTranslations[currentLang].ogDescription);
+    }
 
     // Update HTML lang attribute
     document.documentElement.lang = currentLang;
+    document.documentElement.setAttribute('data-lang', currentLang);
 }
 
 // Handle header background on scroll
