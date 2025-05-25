@@ -1,14 +1,37 @@
 // Get the user's preferred language from localStorage or default to English
 let currentLang = localStorage.getItem('language') || 'en';
 
+const metaTranslations = {
+    en: {
+        title: "SEBA Engineering & Consultancy | Structural Steel & Concrete Design Experts",
+        description: "Expert structural engineering solutions for steel and concrete structures. SEBA Engineering delivers precision in structural design, manufacturing, and site erection.",
+        ogTitle: "SEBA Engineering & Consultancy | Structural Engineering Experts",
+        ogDescription: "Expert structural engineering solutions for steel and concrete structures. Precision in structural design, manufacturing, and site erection."
+    },
+    tr: {
+        title: "SEBA Mühendislik & Danışmanlık | Çelik ve Betonarme Yapı Uzmanları",
+        description: "Yapısal çelik ve betonarme yapılarda uzman mühendislik çözümleri. SEBA Mühendislik tasarım, imalat ve montajda hassasiyet sunar.",
+        ogTitle: "SEBA Mühendislik & Danışmanlık | Yapı Mühendisliği Uzmanları",
+        ogDescription: "Yapısal çelik ve betonarme yapılarda uzman mühendislik çözümleri. Tasarım, imalat ve montajda hassasiyet."
+    }
+};
+
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
     updateContent();
+    
+    // Update language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent === lang.toUpperCase()) {
+            btn.classList.add('active');
+        }
+    });
 }
 
 function updateContent() {
-    // Update navigation
+    // Update navigation and content
     document.querySelectorAll('[data-lang-key]').forEach(element => {
         const key = element.getAttribute('data-lang-key');
         const keys = key.split('.');
@@ -24,6 +47,12 @@ function updateContent() {
             }
         }
     });
+
+    // Update meta tags
+    document.title = metaTranslations[currentLang].title;
+    document.querySelector('meta[name="description"]').setAttribute('content', metaTranslations[currentLang].description);
+    document.querySelector('meta[property="og:title"]').setAttribute('content', metaTranslations[currentLang].ogTitle);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', metaTranslations[currentLang].ogDescription);
 
     // Update HTML lang attribute
     document.documentElement.lang = currentLang;
