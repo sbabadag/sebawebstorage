@@ -62,10 +62,8 @@ const translations = {
         projects: "Projeler",
         insights: "Blog",
         contact: "İletişim",
-        
-        // About page
-        about: {
-            title: "SEBA Mühendislik & Danışmanlık Hakkında",
+          // About page
+        aboutTitle: "SEBA Mühendislik & Danışmanlık Hakkında",
             description1: "Betonarme ve çelik yapılarda uzman çözümler sunan bir yapı mühendisliği ve danışmanlık firmasıyız. SEBA'da, mühendislik zorluklarını verimli, uygulanabilir ve kalıcı çözümlere dönüştürüyoruz.",
             description2: "Uzmanlığımız, yapısal tasarım ve detaylandırmadan imalat ve saha montajına kadar tüm proje yaşam döngüsünü kapsar. Yarattığımız her bileşende hassasiyet ve dayanıklılık sunuyoruz. Projelerimiz, yapısal performans, malzeme davranışı ve inşaat pratikliği konusundaki derin anlayışımızı yansıtır.",
             description3: "Endüstriyel, ticari, tarımsal ve belediye sektörlerindeki müşterilerimiz, yalnızca yapısal olarak sağlam değil, aynı zamanda zaman ve maliyet açısından verimli olan çelik ve beton sistemler tasarlamamız için bize güveniyor. Güvenlik, sürdürülebilirlik ve inovasyon konusundaki günümüz standartlarını karşılayan yüksek performanslı mühendislik sunmaktan gurur duyuyoruz.",
