@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,32 +11,57 @@
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://selahattinbabadag.com/services.html" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/translations.js"></script>
+  <script defer src="assets/js/script.js"></script>
 </head>
 <body>
   <header>
-    <h1>Our Services</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <div class="logo">
+        <h1>SEBA Engineering</h1>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" data-lang-key="home">Home</a>
+        <a href="about.html" data-lang-key="about">About</a>
+        <a href="services.html" data-lang-key="services">Services</a>
+        <a href="projects.html" data-lang-key="projects">Projects</a>
+        <a href="blog.html" data-lang-key="insights">Insights</a>
+        <a href="contact.html" data-lang-key="contact">Contact</a>
+      </div>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+      </div>
     </nav>
   </header>
 
   <section class="content">
-    <h2>What We Offer</h2>
-    <ul>
-      <li><strong>Structural Design:</strong> Design of RC and steel frameworks</li>
-      <li><strong>Manufacturing:</strong> In-house fabrication of steel components</li>
-      <li><strong>Site Erection:</strong> Professional on-site assembly and supervision</li>
-      <li><strong>Consultancy:</strong> Guidance through all project phases</li>
-    </ul>
+    <h2 data-lang-key="services.mainTitle">Our Engineering Services</h2>
+    <div class="services-container">
+      <article class="service-detail">
+        <h3 data-lang-key="services.structural.fullTitle">Structural Design Excellence</h3>
+        <p data-lang-key="services.structural.fullDescription">Our structural design service combines technical expertise with practical insights to create safe, efficient, and buildable solutions. We specialize in both steel and concrete structures, utilizing advanced analysis tools and years of hands-on experience to deliver optimal designs.</p>
+      </article>
+
+      <article class="service-detail">
+        <h3 data-lang-key="services.manufacturing.fullTitle">Precision Manufacturing</h3>
+        <p data-lang-key="services.manufacturing.fullDescription">With state-of-the-art facilities and rigorous quality control, our manufacturing service ensures every steel component meets exact specifications. We prioritize precision, durability, and timely delivery to keep your project on track.</p>
+      </article>
+
+      <article class="service-detail">
+        <h3 data-lang-key="services.erection.fullTitle">Professional Site Erection</h3>
+        <p data-lang-key="services.erection.fullDescription">Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection.</p>
+      </article>
+
+      <article class="service-detail">
+        <h3 data-lang-key="services.consultancy.fullTitle">Expert Engineering Consultancy</h3>
+        <p data-lang-key="services.consultancy.fullDescription">Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects.</p>
+      </article>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 SEBA Engineering & Consultancy</p>
+    <p data-lang-key="footer">&copy; 2025 SEBA Engineering & Consultancy. All rights reserved.</p>
   </footer>
 </body>
 </html>

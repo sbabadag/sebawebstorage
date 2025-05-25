@@ -3,39 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Insights & Articles | SEBA Engineering & Consultancy</title>
-  <meta name="description" content="Expert insights on structural engineering, steel construction, and industry best practices from SEBA Engineering's professional team." />
+  <title data-lang-key="blog.metaTitle">Engineering Insights & Articles | SEBA Engineering & Consultancy</title>
+  <meta name="description" data-lang-key="blog.metaDescription" content="Expert insights on structural engineering, steel construction, and industry best practices from SEBA Engineering's professional team." />
   <meta name="keywords" content="engineering blog, structural engineering articles, steel construction insights, engineering best practices" />
-  <meta property="og:title" content="Engineering Insights - SEBA Engineering & Consultancy" />
-  <meta property="og:description" content="Expert insights and articles on structural engineering and construction practices." />  <meta property="og:url" content="https://selahattinbabadag.com/blog.html" />
+  <meta property="og:title" data-lang-key="blog.metaTitle" content="Engineering Insights - SEBA Engineering & Consultancy" />
+  <meta property="og:description" data-lang-key="blog.metaDescription" content="Expert insights and articles on structural engineering and construction practices." />
+  <meta property="og:url" content="https://selahattinbabadag.com/blog.html" />
   <meta property="og:type" content="article" />
   <link rel="canonical" href="https://selahattinbabadag.com/blog.html" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/translations.js"></script>
+  <script defer src="assets/js/script.js"></script>
 </head>
 <body>
   <header>
-    <h1>Engineering Insights</h1>
+    <h1 data-lang-key="blog.title">Engineering Insights</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" data-lang-key="home">Home</a>
+      <a href="about.html" data-lang-key="about">About</a>
+      <a href="services.html" data-lang-key="services">Services</a>
+      <a href="projects.html" data-lang-key="projects">Projects</a>
+      <a href="blog.html" data-lang-key="insights">Insights</a>
+      <a href="contact.html" data-lang-key="contact">Contact</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+      </div>
     </nav>
   </header>
 
   <section class="content">
-    <h2>Latest Articles</h2>
+    <h2 data-lang-key="blog.subtitle">Latest Articles</h2>
     <ul>
-      <li><strong>Designing for Durability:</strong> How to extend steel structure life</li>
-      <li><strong>RC vs. Steel:</strong> Making the right structural choice</li>
-      <li><strong>On-Site Challenges:</strong> What to watch for during erection</li>
+      <li>
+        <strong data-lang-key="blog.articles.durability.title">Designing for Durability:</strong>
+        <span data-lang-key="blog.articles.durability.subtitle">How to extend steel structure life</span>
+      </li>
+      <li>
+        <strong data-lang-key="blog.articles.comparison.title">RC vs. Steel:</strong>
+        <span data-lang-key="blog.articles.comparison.subtitle">Making the right structural choice</span>
+      </li>
+      <li>
+        <strong data-lang-key="blog.articles.challenges.title">On-Site Challenges:</strong>
+        <span data-lang-key="blog.articles.challenges.subtitle">What to watch for during erection</span>
+      </li>
     </ul>
   </section>
 
   <footer>
-    <p>&copy; 2025 SEBA Engineering & Consultancy</p>
+    <p data-lang-key="footer">&copy; 2025 SEBA Engineering & Consultancy</p>
   </footer>
 </body>
 </html>

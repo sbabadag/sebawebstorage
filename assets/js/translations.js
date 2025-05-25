@@ -17,27 +17,94 @@ const translations = {    en: {
             title: "Shaping a Better Built Environment",
             description: "We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.",
             cta: "Explore Our Work"
-        },
-        services: {
+        },        services: {
             title: "Our Engineering Services",
+            mainTitle: "Our Engineering Services",
             structural: {
                 title: "Structural Design",
-                description: "Comprehensive structural analysis and design solutions for steel and concrete structures"
+                description: "Comprehensive structural analysis and design solutions for steel and concrete structures",
+                fullTitle: "Structural Design Excellence",
+                fullDescription: "Our structural design service combines technical expertise with practical insights to create safe, efficient, and buildable solutions. We specialize in both steel and concrete structures, utilizing advanced analysis tools and years of hands-on experience to deliver optimal designs."
             },
             manufacturing: {
                 title: "Manufacturing",
-                description: "Precision steel fabrication with quality control and modern manufacturing techniques"
+                description: "Precision steel fabrication with quality control and modern manufacturing techniques",
+                fullTitle: "Precision Manufacturing",
+                fullDescription: "With state-of-the-art facilities and rigorous quality control, our manufacturing service ensures every steel component meets exact specifications. We prioritize precision, durability, and timely delivery to keep your project on track."
             },
             erection: {
                 title: "Site Erection",
-                description: "Professional installation and assembly of steel structures with safety focus"
+                description: "Professional installation and assembly of steel structures with safety focus",
+                fullTitle: "Professional Site Erection",
+                fullDescription: "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection."
             },
             consultancy: {
                 title: "Engineering Consultancy",
-                description: "Expert guidance and technical consulting for construction projects"
+                description: "Expert guidance and technical consulting for construction projects",
+                fullTitle: "Expert Engineering Consultancy",
+                fullDescription: "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects."
+            }
+        },        contact: {
+            title: "Contact Us",
+            info: {
+                title: "Get in Touch",
+                description: "We're here to help with your engineering needs. Contact us for consultations, quotes, or to discuss your project requirements."
+            },
+            email: {
+                label: "Email:"
+            },
+            phone: {
+                label: "Phone:"
+            },
+            location: {
+                label: "Location:",
+                address: "Istanbul, Turkey"
+            },
+            form: {
+                name: "Name",
+                email: "Email",
+                message: "Message",
+                submit: "Send Message"
             }
         },
-        footer: "© 2025 SEBA Engineering & Consultancy. All rights reserved."
+        footer: "© 2025 SEBA Engineering & Consultancy. All rights reserved.",
+        projects: {
+            title: "Projects & References",
+            subtitle: "Explore Our Work",
+            filters: {
+                all: "All",
+                design: "Design",
+                fabrication: "Fabrication",
+                erection: "Erection",
+                architectural: "Architectural"
+            },
+            items: {
+                steelHall: "Steel Hall Design – Ankara",
+                modularUnit: "Modular Unit Production",
+                warehouse: "On-site Erection – Warehouse",
+                facade: "Architectural Façade Concept"
+            }
+        },
+        blog: {
+            title: "Engineering Insights",
+            subtitle: "Latest Articles",
+            metaDescription: "Expert insights on structural engineering, steel construction, and industry best practices from SEBA Engineering's professional team.",
+            metaTitle: "Engineering Insights & Articles | SEBA Engineering & Consultancy",
+            articles: {
+                durability: {
+                    title: "Designing for Durability",
+                    subtitle: "How to extend steel structure life"
+                },
+                comparison: {
+                    title: "RC vs. Steel",
+                    subtitle: "Making the right structural choice"
+                },
+                challenges: {
+                    title: "On-Site Challenges",
+                    subtitle: "What to watch for during erection"
+                }
+            }
+        }
     },    tr: {
         home: "Ana Sayfa",
         about: "Hakkımızda",
@@ -57,26 +124,93 @@ const translations = {    en: {
             title: "Daha İyi Bir Yapılı Çevre Şekillendiriyoruz",
             description: "Yapısal çelik ve betonarme yapılarda hassas, uygulanabilir çözümler sunuyoruz—karmaşık mühendislik zorluklarını güvenli, verimli ve kalıcı gerçeklere dönüştürüyoruz.",
             cta: "Projelerimizi İnceleyin"
-        },
-        services: {
+        },        services: {
             title: "Mühendislik Hizmetlerimiz",
+            mainTitle: "Mühendislik Hizmetlerimiz",
             structural: {
                 title: "Yapısal Tasarım",
-                description: "Çelik ve beton yapılar için kapsamlı yapısal analiz ve tasarım çözümleri"
+                description: "Çelik ve beton yapılar için kapsamlı yapısal analiz ve tasarım çözümleri",
+                fullTitle: "Yapısal Tasarım Mükemmelliği",
+                fullDescription: "Yapısal tasarım hizmetimiz, teknik uzmanlığı pratik içgörülerle birleştirerek güvenli, verimli ve uygulanabilir çözümler yaratır. Hem çelik hem de beton yapılarda uzmanlaşmış olup, ileri analiz araçları ve yıllara dayanan pratik deneyimimizi kullanarak optimal tasarımlar sunuyoruz."
             },
             manufacturing: {
                 title: "İmalat",
-                description: "Kalite kontrol ve modern üretim teknikleri ile hassas çelik imalatı"
+                description: "Kalite kontrol ve modern üretim teknikleri ile hassas çelik imalatı",
+                fullTitle: "Hassas İmalat",
+                fullDescription: "Modern tesislerimiz ve titiz kalite kontrolümüz ile, her çelik bileşenin tam spesifikasyonlara uygunluğunu sağlıyoruz. Projenizin zamanında tamamlanması için hassasiyet, dayanıklılık ve zamanında teslimat önceliklerimiz arasındadır."
             },
             erection: {
                 title: "Saha Montajı",
-                description: "Çelik yapıların güvenlik odaklı profesyonel kurulum ve montajı"
+                description: "Çelik yapıların güvenlik odaklı profesyonel kurulum ve montajı",
+                fullTitle: "Profesyonel Saha Montajı",
+                fullDescription: "Saha montaj ekiplerimiz, yapısal elemanların sorunsuz montajını sağlamak için teknik uzmanlığı sıkı güvenlik protokolleriyle birleştirir. Planlama aşamasından final kontrolüne kadar sahada montajın tüm yönlerini yönetiyoruz."
             },
             consultancy: {
                 title: "Mühendislik Danışmanlığı",
-                description: "İnşaat projeleri için uzman rehberlik ve teknik danışmanlık"
+                description: "İnşaat projeleri için uzman rehberlik ve teknik danışmanlık",
+                fullTitle: "Uzman Mühendislik Danışmanlığı",
+                fullDescription: "Danışmanlık hizmetimiz, proje yaşam döngünüz boyunca stratejik rehberlik sağlar. Fizibilite çalışmalarından teknik problem çözmeye kadar, inşaat projelerinizi optimize etmek için uzman görüşleri sunuyoruz."
+            }
+        },        contact: {
+            title: "İletişim",
+            info: {
+                title: "Bizimle İletişime Geçin",
+                description: "Mühendislik ihtiyaçlarınız için buradayız. Danışmanlık, fiyat teklifi veya proje gereksinimlerinizi görüşmek için bizimle iletişime geçin."
+            },
+            email: {
+                label: "E-posta:"
+            },
+            phone: {
+                label: "Telefon:"
+            },
+            location: {
+                label: "Konum:",
+                address: "İstanbul, Türkiye"
+            },
+            form: {
+                name: "İsim",
+                email: "E-posta",
+                message: "Mesaj",
+                submit: "Mesaj Gönder"
             }
         },
-        footer: "© 2025 SEBA Mühendislik & Danışmanlık. Tüm hakları saklıdır."
+        footer: "© 2025 SEBA Mühendislik & Danışmanlık. Tüm hakları saklıdır.",
+        projects: {
+            title: "Projeler & Referanslar",
+            subtitle: "Çalışmalarımızı İnceleyin",
+            filters: {
+                all: "Tümü",
+                design: "Tasarım",
+                fabrication: "İmalat",
+                erection: "Montaj",
+                architectural: "Mimari"
+            },
+            items: {
+                steelHall: "Çelik Salon Tasarımı – Ankara",
+                modularUnit: "Modüler Ünite Üretimi",
+                warehouse: "Saha Montajı – Depo",
+                facade: "Mimari Cephe Konsepti"
+            }
+        },
+        blog: {
+            title: "Mühendislik İçgörüleri",
+            subtitle: "Son Yazılar",
+            metaDescription: "SEBA Mühendislik'in profesyonel ekibinden yapısal mühendislik, çelik yapılar ve endüstri en iyi uygulamaları hakkında uzman görüşleri.",
+            metaTitle: "Mühendislik İçgörüleri & Makaleler | SEBA Mühendislik & Danışmanlık",
+            articles: {
+                durability: {
+                    title: "Dayanıklılık için Tasarım",
+                    subtitle: "Çelik yapı ömrünü uzatma yöntemleri"
+                },
+                comparison: {
+                    title: "Betonarme vs. Çelik",
+                    subtitle: "Doğru yapısal seçimi yapmak"
+                },
+                challenges: {
+                    title: "Saha Zorlukları",
+                    subtitle: "Montaj sırasında dikkat edilmesi gerekenler"
+                }
+            }
+        }
     }
 };
