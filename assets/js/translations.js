@@ -1,11 +1,27 @@
 const translations = {    en: {
+        // Navigation
         home: "Home",
         about: "About",
         services: "Services",
         projects: "Projects",
         insights: "Insights",
         contact: "Contact",
-        about: {
+        
+        // About page
+        "about.title": "About SEBA Engineering & Consultancy",
+        "about.description1": "We are a dedicated structural engineering and consultancy firm providing expert solutions in reinforced concrete and steel-framed structures. At SEBA, we transform engineering challenges into efficient, buildable, and enduring solutions.",
+        "about.description2": "Our expertise spans across the entire project lifecycle—from structural design and detailing to manufacturing and on-site erection. We deliver precision and strength in every component we create. Our projects reflect our deep understanding of structural performance, material behavior, and construction practicality.",
+        "about.description3": "Clients across industrial, commercial, agricultural, and municipal sectors rely on us to engineer steel and concrete systems that are not only structurally sound but also time- and cost-efficient. We pride ourselves on delivering high-performance engineering that meets today's standards for safety, sustainability, and innovation.",
+        "about.description4": "SEBA is built on hands-on experience, technical excellence, and a commitment to building with integrity. Whether designing a complex steel framework or managing large-scale site assembly, we bring clarity, reliability, and engineering strength to every project.",
+        "about.quote": "We don't just build structures. We engineer confidence.",
+        
+        // Hero section
+        "hero.title": "Shaping a Better Built Environment",
+        "hero.description": "We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.",
+        "hero.cta": "Explore Our Work",
+        
+        // Services section
+        "services.title": "Our Engineering Services",
             title: "About SEBA Engineering & Consultancy",
             description1: "We are a dedicated structural engineering and consultancy firm providing expert solutions in reinforced concrete and steel-framed structures. At SEBA, we transform engineering challenges into efficient, buildable, and enduring solutions.",
             description2: "Our expertise spans across the entire project lifecycle—from structural design and detailing to manufacturing and on-site erection. We deliver precision and strength in every component we create. Our projects reflect our deep understanding of structural performance, material behavior, and construction practicality.",
@@ -17,57 +33,35 @@ const translations = {    en: {
             title: "Shaping a Better Built Environment",
             description: "We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.",
             cta: "Explore Our Work"
-        },        services: {
-            title: "Our Engineering Services",
-            mainTitle: "Our Engineering Services",
-            structural: {
-                title: "Structural Design",
-                description: "Comprehensive structural analysis and design solutions for steel and concrete structures",
-                fullTitle: "Structural Design Excellence",
-                fullDescription: "Our structural design service combines technical expertise with practical insights to create safe, efficient, and buildable solutions. We specialize in both steel and concrete structures, utilizing advanced analysis tools and years of hands-on experience to deliver optimal designs."
-            },
-            manufacturing: {
-                title: "Manufacturing",
-                description: "Precision steel fabrication with quality control and modern manufacturing techniques",
-                fullTitle: "Precision Manufacturing",
-                fullDescription: "With state-of-the-art facilities and rigorous quality control, our manufacturing service ensures every steel component meets exact specifications. We prioritize precision, durability, and timely delivery to keep your project on track."
-            },
-            erection: {
-                title: "Site Erection",
-                description: "Professional installation and assembly of steel structures with safety focus",
-                fullTitle: "Professional Site Erection",
-                fullDescription: "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection."
-            },
-            consultancy: {
-                title: "Engineering Consultancy",
-                description: "Expert guidance and technical consulting for construction projects",
-                fullTitle: "Expert Engineering Consultancy",
-                fullDescription: "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects."
-            }
-        },        contact: {
-            title: "Contact Us",
-            info: {
-                title: "Get in Touch",
-                description: "We're here to help with your engineering needs. Contact us for consultations, quotes, or to discuss your project requirements."
-            },
-            email: {
-                label: "Email:"
-            },
-            phone: {
-                label: "Phone:"
-            },
-            location: {
-                label: "Location:",
-                address: "Istanbul, Turkey"
-            },
-            form: {
-                name: "Name",
-                email: "Email",
-                message: "Message",
-                submit: "Send Message"
-            }
-        },
-        footer: "© 2025 SEBA Engineering & Consultancy. All rights reserved.",
+        },        "services.title": "Our Engineering Services",
+        "services.mainTitle": "Our Engineering Services",
+        "services.structural.title": "Structural Design",
+        "services.structural.description": "Comprehensive structural analysis and design solutions for steel and concrete structures",
+        "services.structural.fullTitle": "Structural Design Excellence",
+        "services.structural.fullDescription": "Our structural design service combines technical expertise with practical insights to create safe, efficient, and buildable solutions. We specialize in both steel and concrete structures, utilizing advanced analysis tools and years of hands-on experience to deliver optimal designs.",
+        "services.manufacturing.title": "Manufacturing",
+        "services.manufacturing.description": "Precision steel fabrication with quality control and modern manufacturing techniques",
+        "services.manufacturing.fullTitle": "Precision Manufacturing",
+        "services.manufacturing.fullDescription": "With state-of-the-art facilities and rigorous quality control, our manufacturing service ensures every steel component meets exact specifications. We prioritize precision, durability, and timely delivery to keep your project on track.",
+        "services.erection.title": "Site Erection",
+        "services.erection.description": "Professional installation and assembly of steel structures with safety focus",
+        "services.erection.fullTitle": "Professional Site Erection",
+        "services.erection.fullDescription": "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection.",
+        "services.consultancy.title": "Engineering Consultancy",
+        "services.consultancy.description": "Expert guidance and technical consulting for construction projects",
+        "services.consultancy.fullTitle": "Expert Engineering Consultancy",
+        "services.consultancy.fullDescription": "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects.",        "contact.title": "Contact Us",
+        "contact.info.title": "Get in Touch",
+        "contact.info.description": "We're here to help with your engineering needs. Contact us for consultations, quotes, or to discuss your project requirements.",
+        "contact.email.label": "Email:",
+        "contact.phone.label": "Phone:",
+        "contact.location.label": "Location:",
+        "contact.location.address": "Istanbul, Turkey",
+        "contact.form.name": "Name",
+        "contact.form.email": "Email",
+        "contact.form.message": "Message",
+        "contact.form.submit": "Send Message",
+        "footer": "© 2025 SEBA Engineering & Consultancy. All rights reserved.",
         projects: {
             title: "Projects & References",
             subtitle: "Explore Our Work",

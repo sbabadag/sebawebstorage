@@ -35,9 +35,14 @@ function updateContent() {
     document.querySelectorAll('[data-lang-key]').forEach(element => {
         const key = element.getAttribute('data-lang-key');
         const keys = key.split('.');
-        let translation = translations[currentLang];
-        for (const k of keys) {
-            translation = translation[k];
+        let translation = translations[currentLang];        for (const k of keys) {
+            if (translation[k]) {
+                translation = translation[k];
+            } else {
+                console.error(`Translation key not found: ${key}`);
+                translation = null;
+                break;
+            }
         }
         if (translation) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
