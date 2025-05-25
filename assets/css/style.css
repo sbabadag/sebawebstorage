@@ -30,6 +30,32 @@ nav {
   margin: 0 auto;
 }
 
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+  background: white;
+  color: #002d5c;
+}
+
 nav a {
   color: white;
   margin: 0 20px;

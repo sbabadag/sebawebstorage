@@ -12,8 +12,8 @@
   <meta property="og:url" content="https://selahattinbabadag.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://selahattinbabadag.com/" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="canonical" href="https://selahattinbabadag.com/" />  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/translations.js"></script>
   <script defer src="assets/js/script.js"></script>
   
   <!-- JSON-LD structured data for better search results -->
@@ -40,56 +40,56 @@
     }
   </script>
 </head>
-<body>  <header>
-    <nav>
+<body>  <header>    <nav>
       <div class="logo">
         <h1>SEBA Engineering</h1>
       </div>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-lang-key="home">Home</a>
+        <a href="about.html" data-lang-key="about">About</a>
+        <a href="services.html" data-lang-key="services">Services</a>
+        <a href="projects.html" data-lang-key="projects">Projects</a>
+        <a href="blog.html" data-lang-key="insights">Insights</a>
+        <a href="contact.html" data-lang-key="contact">Contact</a>
+      </div>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
       </div>
     </nav>
-  </header>
-  <section class="hero" aria-label="Introduction">
+  </header>  <section class="hero" aria-label="Introduction">
     <div class="hero-content">
-      <h1>Shaping a Better Built Environment</h1>
-      <p>We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.</p>
-      <a href="projects.html" class="btn" aria-label="View our engineering projects">Explore Our Work</a>
+      <h1 data-lang-key="hero.title">Shaping a Better Built Environment</h1>
+      <p data-lang-key="hero.description">We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.</p>
+      <a href="projects.html" class="btn" aria-label="View our engineering projects" data-lang-key="hero.cta">Explore Our Work</a>
     </div>
-  </section>
-  <section class="services" aria-label="Our Services">
-    <h2>Our Engineering Services</h2>
+  </section>  <section class="services" aria-label="Our Services">
+    <h2 data-lang-key="services.title">Our Engineering Services</h2>
     <div class="service-grid">
       <article class="service-card">
-        <h3>Structural Design</h3>
-        <p>Comprehensive structural analysis and design solutions for steel and concrete structures</p>
+        <h3 data-lang-key="services.structural.title">Structural Design</h3>
+        <p data-lang-key="services.structural.description">Comprehensive structural analysis and design solutions for steel and concrete structures</p>
         <img src="assets/images/2314f2e2-5780-43fc-b952-8a26e76e4b34.JPEG" alt="Structural Design Services" loading="lazy">
       </article>
       <article class="service-card">
-        <h3>Manufacturing</h3>
-        <p>Precision steel fabrication with quality control and modern manufacturing techniques</p>
+        <h3 data-lang-key="services.manufacturing.title">Manufacturing</h3>
+        <p data-lang-key="services.manufacturing.description">Precision steel fabrication with quality control and modern manufacturing techniques</p>
         <img src="assets/images/2786a985-ea94-4cd2-83bc-b427783e80ca.JPEG" alt="Steel Manufacturing Services" loading="lazy">
       </article>
       <article class="service-card">
-        <h3>Site Erection</h3>
-        <p>Professional installation and assembly of steel structures with safety focus</p>
+        <h3 data-lang-key="services.erection.title">Site Erection</h3>
+        <p data-lang-key="services.erection.description">Professional installation and assembly of steel structures with safety focus</p>
         <img src="assets/images/36e738dd-a3e4-40b0-bb24-8d332f238fa1.JPEG" alt="Site Erection Services" loading="lazy">
       </article>
       <article class="service-card">
-        <h3>Engineering Consultancy</h3>
-        <p>Expert guidance and technical consulting for construction projects</p>
+        <h3 data-lang-key="services.consultancy.title">Engineering Consultancy</h3>
+        <p data-lang-key="services.consultancy.description">Expert guidance and technical consulting for construction projects</p>
         <img src="assets/images/c7e4a198-4281-433f-934b-849b7c907062.JPEG" alt="Engineering Consultancy Services" loading="lazy">
       </article>
     </div>
   </section>
-
   <footer>
-    <p>&copy; 2025 SEBA Engineering & Consultancy. All rights reserved.</p>
+    <p data-lang-key="footer">&copy; 2025 SEBA Engineering & Consultancy. All rights reserved.</p>
   </footer>
 </body>
 </html>
