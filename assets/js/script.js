@@ -74,3 +74,14 @@ function filterProjects(category) {
     item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
   });
 }
+
+// Initialize language when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    updateContent();
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent === currentLang.toUpperCase()) {
+            btn.classList.add('active');
+        }
+    });
+});
