@@ -3,7 +3,16 @@ let currentLang = localStorage.getItem('language') || 'en';
 
 // Initialize content when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    // Set initial language
     setLanguage(currentLang);
+    
+    // Set initial button states
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.textContent.toLowerCase();
+        if (btnLang === currentLang) {
+            btn.classList.add('active');
+        }
+    });
 });
 
 const metaTranslations = {
