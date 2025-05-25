@@ -7,10 +7,8 @@ const translations = {
         projects: "Projects",
         insights: "Insights",
         contact: "Contact",
-        
-        // About page
-        about: {
-            title: "About SEBA Engineering & Consultancy",
+          // About page
+        aboutTitle: "About SEBA Engineering & Consultancy",
             description1: "We are a dedicated structural engineering and consultancy firm providing expert solutions in reinforced concrete and steel-framed structures. At SEBA, we transform engineering challenges into efficient, buildable, and enduring solutions.",
             description2: "Our expertise spans across the entire project lifecycle—from structural design and detailing to manufacturing and on-site erection. We deliver precision and strength in every component we create. Our projects reflect our deep understanding of structural performance, material behavior, and construction practicality.",
             description3: "Clients across industrial, commercial, agricultural, and municipal sectors rely on us to engineer steel and concrete systems that are not only structurally sound but also time- and cost-efficient. We pride ourselves on delivering high-performance engineering that meets today's standards for safety, sustainability, and innovation.",

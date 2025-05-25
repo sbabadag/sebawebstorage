@@ -47,9 +47,10 @@ function updateContent() {
         const keys = key.split('.');
         let translation = translations[currentLang];
         
-        try {
-            for (const k of keys) {
-                translation = translation[k];
+        try {            for (const k of keys) {
+                if (typeof translation === 'object' && translation !== null) {
+                    translation = translation[k];
+                }
                 if (translation === undefined) {
                     console.error(`Translation key not found: ${key}`);
                     return;
