@@ -1,24 +1,21 @@
+// Wait for translations to be available
+if (typeof translations === 'undefined') {
+    console.error('Translations not loaded');
+}
+
 // Get the user's preferred language from localStorage or default to English
-let currentLang = localStorage.getItem('language') || 'en';
+const currentLang = localStorage.getItem('language') || 'en';
 
 // Function to update button states
 function updateButtonStates(selectedLang) {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        const btnLang = btn.textContent.toLowerCase();
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => {
         btn.classList.remove('active');
-        if (btnLang === selectedLang) {
+        if (btn.textContent.toLowerCase() === selectedLang) {
             btn.classList.add('active');
         }
     });
 }
-
-// Initialize content when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // Set initial language
-    setLanguage(currentLang);
-    // Set initial button states
-    updateButtonStates(currentLang);
-});
 
 const metaTranslations = {
     en: {
@@ -36,28 +33,33 @@ const metaTranslations = {
 };
 
 function setLanguage(lang) {
-    if (!translations[lang]) {
-        console.error(`Language ${lang} not supported`);
+    if (typeof translations === 'undefined' || !translations[lang]) {
+        console.error(`Language ${lang} not supported or translations not loaded`);
         return;
     }
     
-    currentLang = lang;
     localStorage.setItem('language', lang);
-    updateContent();
+    updateContent(lang);
     updateButtonStates(lang);
 }
 
-function updateContent() {
+function updateContent(lang) {
+    if (!translations || !translations[lang]) {
+        console.error('Translations not available');
+        return;
+    }
+
     // Update navigation and content
     document.querySelectorAll('[data-lang-key]').forEach(element => {
         const key = element.getAttribute('data-lang-key');
+        if (!key) return;
+
         const keys = key.split('.');
-        let translation = translations[currentLang];
+        let translation = translations[lang];
         
-        try {            for (const k of keys) {
-                if (typeof translation === 'object' && translation !== null) {
-                    translation = translation[k];
-                }
+        try {
+            for (const k of keys) {
+                translation = translation?.[k];
                 if (translation === undefined) {
                     console.error(`Translation key not found: ${key}`);
                     return;
@@ -105,4 +107,9 @@ function filterProjects(category) {
   });
 }
 
-// Remove duplicate initialization - we already have it above
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    updateContent(savedLang);
+    updateButtonStates(savedLang);
+});
