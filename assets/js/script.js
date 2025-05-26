@@ -22,13 +22,24 @@
             if (translation) {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                     element.placeholder = translation;
+                } else if (element.tagName === 'META') {
+                    if (element.getAttribute('name') === 'description' ||
+                        element.getAttribute('property')?.endsWith('description')) {
+                        element.content = translation;
+                    } else if (element.getAttribute('property')?.endsWith('title')) {
+                        element.content = translation;
+                    }
                 } else {
                     element.textContent = translation;
+                    // Update document title if this is a title element
+                    if (element.tagName === 'TITLE') {
+                        document.title = translation;
+                    }
                 }
             }
         });
 
-        // Update meta content
+        // Update HTML lang and data-lang attributes
         document.documentElement.lang = lang;
         document.documentElement.setAttribute('data-lang', lang);
     }
@@ -74,12 +85,36 @@
         });
     };
 
+    // Function to detect user's preferred language
+    function getPreferredLanguage() {
+        // First check localStorage
+        const savedLang = localStorage.getItem('language');
+        if (savedLang && window.TRANSLATIONS[savedLang]) {
+            return savedLang;
+        }
+        
+        // Then check browser language
+        const browserLang = navigator.language.split('-')[0];
+        if (window.TRANSLATIONS[browserLang]) {
+            return browserLang;
+        }
+        
+        // Default to English
+        return 'en';
+    }
+
     // Initialize when DOM content is loaded
     document.addEventListener('DOMContentLoaded', function() {
         if (window.TRANSLATIONS) {
-            setLanguage(currentLanguage);
+            const preferredLang = getPreferredLanguage();
+            setLanguage(preferredLang);
         } else {
             console.error('Translations not loaded');
+            // Load translations dynamically if needed
+            const script = document.createElement('script');
+            script.src = 'assets/js/translations.js';
+            script.onload = () => setLanguage(getPreferredLanguage());
+            document.head.appendChild(script);
         }
     });
 })();
