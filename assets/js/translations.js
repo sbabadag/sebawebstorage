@@ -26,43 +26,28 @@ const TRANSLATIONS = {
         description2: "Our expertise spans across the entire project lifecycle—from structural design and detailing to manufacturing and on-site erection. We deliver precision and strength in every component we create. Our projects reflect our deep understanding of structural performance, material behavior, and construction practicality.",
         description3: "Clients across industrial, commercial, agricultural, and municipal sectors rely on us to engineer steel and concrete systems that are not only structurally sound but also time- and cost-efficient. We pride ourselves on delivering high-performance engineering that meets today's standards for safety, sustainability, and innovation.",
         description4: "SEBA is built on hands-on experience, technical excellence, and a commitment to building with integrity. Whether designing a complex steel framework or managing large-scale site assembly, we bring clarity, reliability, and engineering strength to every project.",
-        quote: "We don't just build structures. We engineer confidence.",
-
-        // Hero Section
-        hero: {
-            title: "Shaping a Better Built Environment",
-            description: "We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.",
-            cta: "Explore Our Work"
-        },
-
-        // Services Section
-        services: {
-            title: "Our Engineering Services",
-            mainTitle: "Our Engineering Services",
-            structural: {
-                title: "Structural Design",
-                description: "Comprehensive structural analysis and design solutions for steel and concrete structures",
-                fullTitle: "Structural Design Excellence",
-                fullDescription: "Our structural design service combines technical expertise with practical insights to create safe, efficient, and buildable solutions. We specialize in both steel and concrete structures, utilizing advanced analysis tools and years of hands-on experience to deliver optimal designs."
-            },
-            manufacturing: {
-                title: "Manufacturing",
-                description: "Precision steel fabrication with quality control and modern manufacturing techniques",
-                fullTitle: "Precision Manufacturing",
-                fullDescription: "With state-of-the-art facilities and rigorous quality control, our manufacturing service ensures every steel component meets exact specifications. We prioritize precision, durability, and timely delivery to keep your project on track."
-            },
-            erection: {
-                title: "Site Erection",
-                description: "Professional installation and assembly of steel structures with safety focus",
-                fullTitle: "Professional Site Erection",
-                fullDescription: "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection."
-            },
-            consultancy: {
-                title: "Engineering Consultancy",
-                description: "Expert guidance and technical consulting for construction projects",
-                fullTitle: "Expert Engineering Consultancy",
-                fullDescription: "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects."
-            }
+        quote: "We don't just build structures. We engineer confidence.",        // Hero Section
+        "hero.title": "Shaping a Better Built Environment",
+        "hero.description": "We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.",
+        "hero.cta": "Explore Our Work",// Services Section
+        "services.title": "Our Engineering Services",
+        "services.mainTitle": "Our Engineering Services",
+        "services.structural.title": "Structural Design",
+        "services.structural.description": "Comprehensive structural analysis and design solutions for steel and concrete structures",
+        "services.structural.fullTitle": "Structural Design Excellence",
+        "services.structural.fullDescription": "Our structural design service combines technical expertise with practical insights to create safe, efficient, and buildable solutions. We specialize in both steel and concrete structures, utilizing advanced analysis tools and years of hands-on experience to deliver optimal designs.",
+        "services.manufacturing.title": "Manufacturing",
+        "services.manufacturing.description": "Precision steel fabrication with quality control and modern manufacturing techniques",
+        "services.manufacturing.fullTitle": "Precision Manufacturing",
+        "services.manufacturing.fullDescription": "With state-of-the-art facilities and rigorous quality control, our manufacturing service ensures every steel component meets exact specifications. We prioritize precision, durability, and timely delivery to keep your project on track.",
+        "services.erection.title": "Site Erection",
+        "services.erection.description": "Professional installation and assembly of steel structures with safety focus",
+        "services.erection.fullTitle": "Professional Site Erection",
+        "services.erection.fullDescription": "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection.",
+        "services.consultancy.title": "Engineering Consultancy",
+        "services.consultancy.description": "Expert guidance and technical consulting for construction projects",
+        "services.consultancy.fullTitle": "Expert Engineering Consultancy",
+        "services.consultancy.fullDescription": "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects.",
         },
 
         // Projects Page
@@ -145,43 +130,28 @@ const TRANSLATIONS = {
         description2: "Uzmanlığımız, yapısal tasarım ve detaylandırmadan imalat ve saha montajına kadar tüm proje yaşam döngüsünü kapsar. Yarattığımız her bileşende hassasiyet ve dayanıklılık sunuyoruz. Projelerimiz, yapısal performans, malzeme davranışı ve inşaat pratikliği konusundaki derin anlayışımızı yansıtır.",
         description3: "Endüstriyel, ticari, tarımsal ve belediye sektörlerindeki müşterilerimiz, yalnızca yapısal olarak sağlam değil, aynı zamanda zaman ve maliyet açısından verimli olan çelik ve beton sistemler tasarlamamız için bize güveniyor. Güvenlik, sürdürülebilirlik ve inovasyon konusundaki günümüz standartlarını karşılayan yüksek performanslı mühendislik sunmaktan gurur duyuyoruz.",
         description4: "SEBA, pratik deneyim, teknik mükemmellik ve dürüstlükle inşa etme taahhüdü üzerine kurulmuştur. İster karmaşık bir çelik çerçeve tasarımı, ister büyük ölçekli saha montajı yönetimi olsun, her projeye netlik, güvenilirlik ve mühendislik gücü katıyoruz.",
-        quote: "Biz sadece yapı inşa etmiyoruz. Güven inşa ediyoruz.",
-
-        // Hero Section
-        hero: {
-            title: "Daha İyi Bir Yapılı Çevre Şekillendiriyoruz",
-            description: "Yapısal çelik ve betonarme yapılarda hassas, uygulanabilir çözümler sunuyoruz—karmaşık mühendislik zorluklarını güvenli, verimli ve dayanıklı gerçeklere dönüştürüyoruz.",
-            cta: "Projelerimizi İnceleyin"
-        },
-
-        // Services Section
-        services: {
-            title: "Mühendislik Hizmetlerimiz",
-            mainTitle: "Mühendislik Hizmetlerimiz",
-            structural: {
-                title: "Yapısal Tasarım",
-                description: "Çelik ve betonarme yapılar için kapsamlı yapısal analiz ve tasarım çözümleri",
-                fullTitle: "Mükemmel Yapısal Tasarım",
-                fullDescription: "Yapısal tasarım hizmetimiz, güvenli, verimli ve uygulanabilir çözümler oluşturmak için teknik uzmanlığı pratik içgörülerle birleştirir. Hem çelik hem de betonarme yapılarda uzmanlaşıyoruz, gelişmiş analiz araçları ve yılların deneyimini kullanarak optimal tasarımlar sunuyoruz."
-            },
-            manufacturing: {
-                title: "İmalat",
-                description: "Kalite kontrol ve modern imalat teknikleri ile hassas çelik imalatı",
-                fullTitle: "Hassas İmalat",
-                fullDescription: "Modern tesislerimiz ve sıkı kalite kontrolü ile her çelik bileşenin tam şartnameye uygunluğunu sağlıyoruz. Projenizi planında tutmak için hassasiyet, dayanıklılık ve zamanında teslimat önceliklerimizdir."
-            },
-            erection: {
-                title: "Saha Montajı",
-                description: "Çelik yapıların güvenlik odaklı profesyonel kurulumu ve montajı",
-                fullTitle: "Profesyonel Saha Montajı",
-                fullDescription: "Saha montaj ekiplerimiz, yapısal elemanların sorunsuz montajını sağlamak için teknik uzmanlığı sıkı güvenlik protokolleriyle birleştirir. Planlama aşamasından son kontrole kadar tüm saha kurulum süreçlerini yönetiyoruz."
-            },
-            consultancy: {
-                title: "Mühendislik Danışmanlığı",
-                description: "İnşaat projeleri için uzman rehberlik ve teknik danışmanlık",
-                fullTitle: "Uzman Mühendislik Danışmanlığı",
-                fullDescription: "Danışmanlık hizmetimiz, proje yaşam döngünüz boyunca stratejik rehberlik sağlar. Fizibilite çalışmalarından teknik problem çözmeye kadar, inşaat projelerinizi optimize etmek için uzman içgörüler sunuyoruz."
-            }
+        quote: "Biz sadece yapı inşa etmiyoruz. Güven inşa ediyoruz.",        // Hero Section
+        "hero.title": "Daha İyi Bir Yapılı Çevre Şekillendiriyoruz",
+        "hero.description": "Yapısal çelik ve betonarme yapılarda hassas, uygulanabilir çözümler sunuyoruz—karmaşık mühendislik zorluklarını güvenli, verimli ve dayanıklı gerçeklere dönüştürüyoruz.",
+        "hero.cta": "Projelerimizi İnceleyin",// Services Section
+        "services.title": "Mühendislik Hizmetlerimiz",
+        "services.mainTitle": "Mühendislik Hizmetlerimiz",
+        "services.structural.title": "Yapısal Tasarım",
+        "services.structural.description": "Çelik ve betonarme yapılar için kapsamlı yapısal analiz ve tasarım çözümleri",
+        "services.structural.fullTitle": "Mükemmel Yapısal Tasarım",
+        "services.structural.fullDescription": "Yapısal tasarım hizmetimiz, güvenli, verimli ve uygulanabilir çözümler oluşturmak için teknik uzmanlığı pratik içgörülerle birleştirir. Hem çelik hem de betonarme yapılarda uzmanlaşıyoruz, gelişmiş analiz araçları ve yılların deneyimini kullanarak optimal tasarımlar sunuyoruz.",
+        "services.manufacturing.title": "İmalat",
+        "services.manufacturing.description": "Kalite kontrol ve modern imalat teknikleri ile hassas çelik imalatı",
+        "services.manufacturing.fullTitle": "Hassas İmalat",
+        "services.manufacturing.fullDescription": "Modern tesislerimiz ve sıkı kalite kontrolü ile her çelik bileşenin tam şartnameye uygunluğunu sağlıyoruz. Projenizi planında tutmak için hassasiyet, dayanıklılık ve zamanında teslimat önceliklerimizdir.",
+        "services.erection.title": "Saha Montajı",
+        "services.erection.description": "Çelik yapıların güvenlik odaklı profesyonel kurulumu ve montajı",
+        "services.erection.fullTitle": "Profesyonel Saha Montajı",
+        "services.erection.fullDescription": "Saha montaj ekiplerimiz, yapısal elemanların sorunsuz montajını sağlamak için teknik uzmanlığı sıkı güvenlik protokolleriyle birleştirir. Planlama aşamasından son kontrole kadar tüm saha kurulum süreçlerini yönetiyoruz.",
+        "services.consultancy.title": "Mühendislik Danışmanlığı",
+        "services.consultancy.description": "İnşaat projeleri için uzman rehberlik ve teknik danışmanlık",
+        "services.consultancy.fullTitle": "Uzman Mühendislik Danışmanlığı",
+        "services.consultancy.fullDescription": "Danışmanlık hizmetimiz, proje yaşam döngünüz boyunca stratejik rehberlik sağlar. Fizibilite çalışmalarından teknik problem çözmeye kadar, inşaat projelerinizi optimize etmek için uzman içgörüler sunuyoruz.",
         },
 
         // Projects Page

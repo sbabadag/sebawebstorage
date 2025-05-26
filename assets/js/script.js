@@ -6,9 +6,7 @@
     // Function to get nested translations
     function getTranslation(obj, path) {
         return path.split('.').reduce((acc, part) => acc && acc[part], obj);
-    }
-
-    // Update page content with selected language
+    }    // Update page content with selected language
     function updateContent(lang) {
         if (!window.TRANSLATIONS || !window.TRANSLATIONS[lang]) {
             console.error('Translations not available for language:', lang);
@@ -20,6 +18,11 @@
             const translation = getTranslation(window.TRANSLATIONS[lang], key);
 
             if (translation) {
+                // Skip if translation is an object (nested translations)
+                if (typeof translation === 'object') {
+                    return;
+                }
+                
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                     element.placeholder = translation;
                 } else if (element.tagName === 'META') {
