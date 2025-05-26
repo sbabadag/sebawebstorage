@@ -1,10 +1,16 @@
-// Wait for translations to be available
-if (typeof translations === 'undefined') {
-    console.error('Translations not loaded');
-}
+// Wait for translations to be available and initialize language handling
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof window.translations === 'undefined') {
+        console.error('Translations not loaded');
+        return;
+    }
 
-// Get the user's preferred language from localStorage or default to English
-const currentLang = localStorage.getItem('language') || 'en';
+    // Get the user's preferred language from localStorage or default to English
+    const currentLang = localStorage.getItem('language') || 'en';
+    
+    // Initialize the page
+    setLanguage(currentLang);
+});
 
 // Function to update button states
 function updateButtonStates(selectedLang) {
@@ -33,14 +39,52 @@ const metaTranslations = {
 };
 
 function setLanguage(lang) {
-    if (typeof translations === 'undefined' || !translations[lang]) {
+    // Check if translations are available
+    if (typeof window.translations === 'undefined' || !window.translations[lang]) {
         console.error(`Language ${lang} not supported or translations not loaded`);
         return;
     }
     
     localStorage.setItem('language', lang);
-    updateContent(lang);
-    updateButtonStates(lang);
+    
+    // Update the content
+    const elements = document.querySelectorAll('[data-lang-key]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (!key) return;
+
+        const keys = key.split('.');
+        let translation = window.translations[lang];
+        
+        try {
+            for (const k of keys) {
+                translation = translation?.[k];
+                if (translation === undefined) break;
+            }
+            
+            if (translation) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translation;
+                } else {
+                    element.textContent = translation;
+                }
+            }
+        } catch (error) {
+            console.error(`Error updating translation for key: ${key}`, error);
+        }
+    });
+
+    // Update button states
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === lang.toLowerCase()) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
 }
 
 function updateContent(lang) {

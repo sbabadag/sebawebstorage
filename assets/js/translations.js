@@ -1,4 +1,4 @@
-const translations = {
+window.translations = window.translations || {
     en: {
         // Navigation
         home: "Home",
