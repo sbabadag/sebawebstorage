@@ -1,18 +1,23 @@
 // Get the user's preferred language from localStorage or default to English
 let currentLang = localStorage.getItem('language') || 'en';
 
+// Function to update button states
+function updateButtonStates(selectedLang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.textContent.toLowerCase();
+        btn.classList.remove('active');
+        if (btnLang === selectedLang) {
+            btn.classList.add('active');
+        }
+    });
+}
+
 // Initialize content when page loads
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial language
     setLanguage(currentLang);
-    
     // Set initial button states
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        const btnLang = btn.textContent.toLowerCase();
-        if (btnLang === currentLang) {
-            btn.classList.add('active');
-        }
-    });
+    updateButtonStates(currentLang);
 });
 
 const metaTranslations = {
@@ -39,14 +44,7 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
     updateContent();
-    
-    // Update language switcher buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.textContent === lang.toUpperCase()) {
-            btn.classList.add('active');
-        }
-    });
+    updateButtonStates(lang);
 }
 
 function updateContent() {
@@ -107,13 +105,4 @@ function filterProjects(category) {
   });
 }
 
-// Initialize language when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    updateContent();
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.textContent === currentLang.toUpperCase()) {
-            btn.classList.add('active');
-        }
-    });
-});
+// Remove duplicate initialization - we already have it above
