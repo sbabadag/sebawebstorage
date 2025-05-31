@@ -45,21 +45,27 @@
         // Update HTML lang and data-lang attributes
         document.documentElement.lang = lang;
         document.documentElement.setAttribute('data-lang', lang);
-    }
-
-    // Update button states
+    }    // Update button states
     function updateButtonStates(lang) {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
-            if (btn.textContent.toLowerCase() === lang.toLowerCase()) {
+            const btnLang = btn.getAttribute('data-lang') || btn.textContent.toLowerCase();
+            if (btnLang.toLowerCase() === lang.toLowerCase()) {
                 btn.classList.add('active');
             }
         });
-    }    // Main language switching function
+    }// Main language switching function
     window.setLanguage = function(lang) {
         console.log("Setting language to:", lang);
+        
+        // If TRANSLATIONS is not directly on window, try to find it in global scope
+        if (!window.TRANSLATIONS && typeof TRANSLATIONS !== 'undefined') {
+            window.TRANSLATIONS = TRANSLATIONS;
+            console.log("Found TRANSLATIONS in global scope and assigned to window");
+        }
+        
         if (!window.TRANSLATIONS || !window.TRANSLATIONS[lang]) {
-            console.error('Language not supported:', lang);
+            console.error('Translations not available for language:', lang);
             return;
         }
 

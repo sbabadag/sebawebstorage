@@ -3,20 +3,40 @@
     // Function to ensure language buttons work properly
     function enhanceLanguageSwitching() {
         console.log("Enhancing language switching...");
-        
         // Ensure translations object is properly loaded
         if (!window.TRANSLATIONS) {
-            console.error("TRANSLATIONS object not found, attempting to load it");
+            console.log("TRANSLATIONS object not found initially, attempting to fix");
             
-            // Try to load translations dynamically if not already loaded
-            const script = document.createElement('script');
-            script.src = window.location.pathname.includes('/blog/') ? '../assets/js/translations.js' : 'assets/js/translations.js';
-            script.onload = function() {
-                console.log("Translations loaded dynamically");
-                enhanceLanguageSwitching(); // Run again after loading translations
-            };
-            document.head.appendChild(script);
-            return; // Exit and wait for the script to load
+            try {
+                // Check if TRANSLATIONS exists in the global scope
+                if (typeof TRANSLATIONS !== 'undefined') {
+                    console.log("Found TRANSLATIONS in global scope, assigning to window");
+                    window.TRANSLATIONS = TRANSLATIONS;
+                } else {
+                    // Try to load translations dynamically if not already loaded
+                    const script = document.createElement('script');
+                    const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
+                    script.src = `${basePath}assets/js/translations.js`;
+                    console.log("Loading translations from:", script.src);
+                    
+                    script.onload = function() {
+                        console.log("Translations loaded dynamically");
+                        // Wait a brief moment to ensure script executes
+                        setTimeout(function() {
+                            if (typeof TRANSLATIONS !== 'undefined') {
+                                window.TRANSLATIONS = TRANSLATIONS;
+                                console.log("Successfully assigned TRANSLATIONS to window");
+                            }
+                            enhanceLanguageSwitching(); // Run again after loading translations
+                        }, 50);
+                    };
+                    
+                    document.head.appendChild(script);
+                    return; // Exit and wait for the script to load
+                }
+            } catch (e) {
+                console.error("Error while trying to access TRANSLATIONS:", e);
+            }
         }
         
         // Ensure setLanguage function exists
@@ -54,28 +74,40 @@
                 document.documentElement.setAttribute('data-lang', lang);
                 localStorage.setItem('language', lang);
             };
-        }
-        
-        // Fix language button behavior by replacing onclick with proper event listeners
+        }        // Fix language button behavior by replacing onclick with proper event listeners
         document.querySelectorAll('.lang-btn').forEach(btn => {
-            // Store the language from the button text
-            const lang = btn.textContent.toLowerCase();
+            // Get the language from the data-lang attribute or button text
+            const lang = btn.getAttribute('data-lang') || btn.textContent.toLowerCase();
             
             // Remove the inline onclick attribute to avoid double calls
             btn.removeAttribute('onclick');
             
-            // Create a new button to replace the old one (cleanest way to remove all event listeners)
+            // Clone the button to remove all existing event listeners
             const newBtn = btn.cloneNode(true);
-            btn.parentNode.replaceChild(newBtn, btn);
-            
-            // Add new click listener
-            newBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log("Language button clicked:", lang);
-                window.setLanguage(lang);
-                return false;
-            });
+            if (btn.parentNode) {
+                btn.parentNode.replaceChild(newBtn, btn);
+                
+                // Store the language in a data attribute for clarity
+                if (!newBtn.hasAttribute('data-lang')) {
+                    newBtn.setAttribute('data-lang', lang);
+                }
+                
+                // Add new click listener with proper event handling
+                newBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const clickedLang = this.getAttribute('data-lang') || this.textContent.toLowerCase();
+                    console.log("Language button clicked:", clickedLang);
+                    
+                    if (window.setLanguage) {
+                        window.setLanguage(clickedLang);
+                    } else {
+                        console.error("setLanguage function not available");
+                    }
+                    
+                    return false;
+                });
+            }
         });
         
         // Set active status on the correct button based on current language
@@ -93,13 +125,16 @@
         document.addEventListener('DOMContentLoaded', enhanceLanguageSwitching);
     } else {
         enhanceLanguageSwitching();
-    }
-    
-    // Also run when translations are loaded or window.TRANSLATIONS changes
+    }    // Also run when translations are loaded or window.TRANSLATIONS changes
     const checkTranslations = setInterval(function() {
         if (window.TRANSLATIONS) {
             enhanceLanguageSwitching();
             clearInterval(checkTranslations);
         }
     }, 100);
+
+    // Make sure we don't keep checking indefinitely
+    setTimeout(function() {
+        clearInterval(checkTranslations);
+    }, 5000);
 })();

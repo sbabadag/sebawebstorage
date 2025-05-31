@@ -1,5 +1,5 @@
 // Service Worker for SEBA Engineering Website
-const CACHE_NAME = 'seba-engineering-cache-v1';
+const CACHE_NAME = 'seba-engineering-cache-v2';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
@@ -12,11 +12,14 @@ const URLS_TO_CACHE = [
   '/manifest.json',
   '/assets/css/style.css',
   '/assets/css/social-share.css',
-  '/assets/css/newsletter.css',
-  '/assets/css/responsive.css',
+  '/assets/css/newsletter.css',  '/assets/css/responsive.css',
   '/assets/css/faq.css',
   '/assets/js/script.js',
   '/assets/js/translations.js',
+  '/assets/js/language-init.js',
+  '/assets/js/language-enhancer.js', 
+  '/assets/js/language-diagnostic.js',
+  '/assets/js/force-language-update.js',
   '/assets/js/social-share.js',
   '/assets/js/newsletter.js',
   '/assets/images/favicon.ico',

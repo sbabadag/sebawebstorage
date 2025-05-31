@@ -1,5 +1,5 @@
 // Language translations for the website
-const TRANSLATIONS = {
+var TRANSLATIONS = {
     en: {
         // Meta Tags
         "meta.title": "SEBA Engineering & Consultancy | Structural Steel & Concrete Design Experts",

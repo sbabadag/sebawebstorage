@@ -27,11 +27,27 @@
   <meta property="og:url" content="https://selahattinbabadag.com/" />  <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SEBA Engineering & Consultancy | Structural Engineering Experts" />
-  <meta name="twitter:description" content="Expert structural engineering solutions for steel and concrete structures. Precision in structural design, manufacturing, and site erection." />
-  <meta name="twitter:image" content="https://selahattinbabadag.com/assets/images/c4cc46a6-6116-4478-a979-e9f52d58f29e.JPEG" />  <link rel="canonical" href="https://selahattinbabadag.com/" />  <!-- Load scripts properly with defer to ensure they load in order -->
+  <meta name="twitter:description" content="Expert structural engineering solutions for steel and concrete structures. Precision in structural design, manufacturing, and site erection." />  <meta name="twitter:image" content="https://selahattinbabadag.com/assets/images/c4cc46a6-6116-4478-a979-e9f52d58f29e.JPEG" />  <!-- Load scripts properly to ensure they load in the correct order -->
   <script src="assets/js/translations.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/language-init.js"></script>
+  <script src="assets/js/script.js" defer></script>
   <script src="assets/js/language-enhancer.js" defer></script>
+  <script src="assets/js/language-diagnostic.js" defer></script>
+  <script>
+    // Add test to verify language switching is working
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Language system test initialized");
+      // Wait a short time for all scripts to load
+      setTimeout(function() {
+        console.log("Current language:", localStorage.getItem('language') || 'en');
+        console.log("TRANSLATIONS available:", window.TRANSLATIONS ? "Yes" : "No");
+        console.log("setLanguage function available:", window.setLanguage ? "Yes" : "No");
+        
+        const testTranslation = window.TRANSLATIONS?.en?.home || 'Translation not found';
+        console.log("Test translation sample:", testTranslation);
+      }, 500);
+    });
+  </script>
     <!-- JSON-LD structured data for better search results -->
   <script type="application/ld+json">
     {
@@ -78,8 +94,8 @@
         <a href="blog.html" data-lang-key="insights">Insights</a>
         <a href="contact.html" data-lang-key="contact">Contact</a>
       </div>      <div class="lang-switcher">
-        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
       </div>
     </nav>
   </header>  <section class="hero" aria-label="Introduction">

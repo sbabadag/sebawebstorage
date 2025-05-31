@@ -29,9 +29,9 @@
   <link rel="canonical" href="https://selahattinbabadag.com/faq.html" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/faq.css" />
-  <link rel="stylesheet" href="assets/css/newsletter.css" />  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/script.js"></script>
+  <link rel="stylesheet" href="assets/css/newsletter.css" />  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/language-init.js"></script>
+  <script src="assets/js/script.js" defer></script>
   <script src="assets/js/newsletter.js" defer></script>
   <script src="assets/js/language-enhancer.js" defer></script>
   
@@ -138,10 +138,9 @@
         <a href="projects.html" data-lang-key="projects">Projects</a>
         <a href="blog.html" data-lang-key="insights">Insights</a>
         <a href="contact.html" data-lang-key="contact">Contact</a>
-      </div>      
-      <div class="lang-switcher">
-        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+      </div>        <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
       </div>
     </nav>
   </header>  
