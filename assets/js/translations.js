@@ -43,11 +43,22 @@ const TRANSLATIONS = {
         "services.erection.title": "Site Erection",
         "services.erection.description": "Professional installation and assembly of steel structures with safety focus",
         "services.erection.fullTitle": "Professional Site Erection",
-        "services.erection.fullDescription": "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection.",
-        "services.consultancy.title": "Engineering Consultancy",
+        "services.erection.fullDescription": "Our site erection teams combine technical expertise with strict safety protocols to ensure smooth assembly of structural elements. We manage all aspects of on-site installation, from planning to final inspection.",        "services.consultancy.title": "Engineering Consultancy",
         "services.consultancy.description": "Expert guidance and technical consulting for construction projects",
-        "services.consultancy.fullTitle": "Expert Engineering Consultancy",
-        "services.consultancy.fullDescription": "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects.",
+        "services.consultancy.fullTitle": "Expert Engineering Consultancy",        "services.consultancy.fullDescription": "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects.",
+        
+        // Social sharing
+        "share.title": "Share Our Engineering Solutions",
+        
+        // Newsletter
+        "newsletter.title": "Stay Updated with Engineering Insights",
+        "newsletter.description": "Subscribe to our newsletter for the latest structural engineering trends, project highlights, and industry innovations.",
+        "newsletter.placeholder": "Your Email Address",
+        "newsletter.button": "Subscribe",
+        "newsletter.privacy": "Your information is secure. We don't share your email with third parties.",
+        "newsletter.emailPlaceholder": "Your Email Address",
+        "newsletter.subscribe": "Subscribe",
+        "newsletter.consent": "I agree to receive engineering newsletters and can unsubscribe at any time.",
         },
 
         // Projects Page

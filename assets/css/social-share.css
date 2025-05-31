@@ -1,0 +1,46 @@
+/* Social media sharing buttons */
+.social-share {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.social-share a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-share a:hover {
+  transform: translateY(-3px);
+}
+
+.social-share .facebook {
+  background-color: #3b5998;
+}
+
+.social-share .twitter {
+  background-color: #1da1f2;
+}
+
+.social-share .linkedin {
+  background-color: #0077b5;
+}
+
+.social-share .whatsapp {
+  background-color: #25d366;
+}
+
+.social-share .telegram {
+  background-color: #0088cc;
+}
+
+.social-share .email {
+  background-color: #dd4b39;
+}

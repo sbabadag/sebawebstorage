@@ -1,3 +1,26 @@
+# SEBA Engineering & Consultancy - Robot instructions
+# https://selahattinbabadag.com
+
 User-agent: *
 Allow: /
+Disallow: /assets/images/design/
+Disallow: /cors.json
+
+# Crawl-delay directive for bots that respect it
+Crawl-delay: 10
+
+# Specific rules for major bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 10
+
+# Point to sitemap
 Sitemap: https://selahattinbabadag.com/sitemap.xml
