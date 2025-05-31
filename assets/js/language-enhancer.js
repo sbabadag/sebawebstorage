@@ -109,12 +109,12 @@
                 });
             }
         });
-        
-        // Set active status on the correct button based on current language
+          // Set active status on the correct button based on current language
         const currentLang = localStorage.getItem('language') || 'en';
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
-            if (btn.textContent.toLowerCase() === currentLang) {
+            const btnLang = btn.getAttribute('data-lang');
+            if (btnLang && btnLang.toLowerCase() === currentLang.toLowerCase()) {
                 btn.classList.add('active');
             }
         });
