@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEBA Translation Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    .warning {
+      color: orange;
+      font-weight: bold;
+    }
+    .lang-switcher {
+      margin: 20px 0;
+    }
+    .lang-btn {
+      padding: 8px 16px;
+      background-color: #e0e0e0;
+      border: 1px solid #ccc;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background-color: #007bff;
+      color: white;
+      border-color: #0056b3;
+    }
+    .translation-sample {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script src="assets/js/translations-fixed.js"></script>
+  <script src="assets/js/language-init.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const statusEl = document.getElementById('status');
+      const langStatusEl = document.getElementById('lang-status');
+      const samplesEl = document.getElementById('translation-samples');
+      const keysEl = document.getElementById('translation-keys');
+      
+      // Check if translations are available
+      if (!window.TRANSLATIONS) {
+        statusEl.innerHTML = '<span class="error">TRANSLATIONS object not found</span>';
+      } else {
+        statusEl.innerHTML = '<span class="success">TRANSLATIONS object loaded successfully</span>';
+        
+        // List available languages
+        const langs = Object.keys(window.TRANSLATIONS);
+        langStatusEl.innerHTML = `<span class="success">Available languages: ${langs.join(', ')}</span>`;
+        
+        // Show some translation samples
+        function displaySamples(lang) {
+          if (!window.TRANSLATIONS[lang]) return;
+          
+          const examples = [
+            { key: 'home', label: 'Home link' },
+            { key: 'about', label: 'About link' },
+            { key: 'services.title', label: 'Services title' },
+            { key: 'hero.title', label: 'Hero title' },
+            { key: 'footer', label: 'Footer text' }
+          ];
+          
+          samplesEl.innerHTML = '';
+          examples.forEach(ex => {
+            const translation = window.TRANSLATIONS[lang][ex.key];
+            samplesEl.innerHTML += `
+              <div class="translation-sample">
+                <strong>${ex.label} (${ex.key}):</strong>
+                <div>${translation || '<span class="error">Not found</span>'}</div>
+              </div>
+            `;
+          });
+          
+          // List all translation keys
+          const keys = Object.keys(window.TRANSLATIONS[lang]).slice(0, 10);
+          keysEl.innerHTML = `<p>First 10 keys: ${keys.join(', ')}</p>`;
+        }
+        
+        // Setup language buttons
+        const currentLang = localStorage.getItem('language') || 'en';
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          const lang = btn.getAttribute('data-lang');
+          if (lang === currentLang) {
+            btn.classList.add('active');
+          }
+          
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            localStorage.setItem('language', lang);
+            displaySamples(lang);
+          });
+        });
+        
+        // Display initial samples
+        displaySamples(currentLang);
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>SEBA Translation Test</h1>
+  
+  <div id="status">Checking translations...</div>
+  <div id="lang-status">Checking languages...</div>
+  
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="tr">TR</button>
+  </div>
+  
+  <h2>Translation Samples</h2>
+  <div id="translation-samples">Loading...</div>
+  
+  <h2>Available Keys</h2>
+  <div id="translation-keys">Loading...</div>
+  
+  <div style="margin-top: 30px;">
+    <h3>Fix Instructions</h3>
+    <ol>
+      <li>The website was using a file named <code>translations.js</code> which had syntax errors</li>
+      <li>We've created a fixed version called <code>translations-fixed.js</code></li>
+      <li>All pages should now automatically use this fixed version</li>
+      <li>If you still see errors, make sure all pages are updated to use the fixed file</li>
+    </ol>
+    <button onclick="window.location.href='index.html'">Return to Homepage</button>
+  </div>
+</body>
+</html>

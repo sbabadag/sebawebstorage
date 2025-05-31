@@ -2,6 +2,37 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log("Language System Diagnostic Tool running...");
   
+  // Deep validation of the TRANSLATIONS object
+  function validateTranslations() {
+    console.group("Validating translations.js structure");
+    try {
+      if (!window.TRANSLATIONS) {
+        throw new Error("TRANSLATIONS not found on window object");
+      }
+      
+      // Check language objects
+      const languages = Object.keys(window.TRANSLATIONS);
+      console.log("Available languages:", languages.join(", "));
+      
+      // Validate each language has entries
+      languages.forEach(lang => {
+        const entryCount = Object.keys(window.TRANSLATIONS[lang]).length;
+        console.log(`${lang}: ${entryCount} translation entries`);
+        if (entryCount === 0) {
+          console.warn(`⚠️ Language ${lang} has no entries!`);
+        }
+      });
+      
+      console.log("✓ Basic structure validation passed");
+    } catch (e) {
+      console.error("✗ Validation failed:", e.message);
+    }
+    console.groupEnd();
+  }
+  
+  // Run validation
+  validateTranslations();
+  
   // Check if TRANSLATIONS is available
   if (!window.TRANSLATIONS) {
     console.warn("TRANSLATIONS not found on window object");

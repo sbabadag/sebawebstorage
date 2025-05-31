@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEBA Translations Validator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #333; }
+        .results { margin: 20px 0; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .success { color: green; }
+        .error { color: red; }
+        .warning { color: orange; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 4px; overflow: auto; }
+        button { padding: 10px 15px; background: #0078d4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005a9e; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 8px; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>SEBA Translations Validator</h1>
+    <button id="validateBtn">Validate Translations</button>
+    <div class="results" id="results">
+        <p>Click the button above to validate translations</p>
+    </div>
+
+    <script>
+        document.getElementById('validateBtn').addEventListener('click', function() {
+            const resultDiv = document.getElementById('results');
+            resultDiv.innerHTML = '<p>Validating translations...</p>';
+            
+            // First load the translations.js file
+            const script = document.createElement('script');
+            script.src = 'assets/js/translations.js';
+            script.onload = function() {
+                validateTranslations();
+            };
+            script.onerror = function() {
+                resultDiv.innerHTML = '<p class="error">Failed to load translations.js file</p>';
+            };
+            document.head.appendChild(script);
+        });
+
+        function validateTranslations() {
+            const resultDiv = document.getElementById('results');
+            let output = '<h2>Validation Results</h2>';
+            
+            try {
+                if (typeof TRANSLATIONS !== 'object') {
+                    throw new Error('TRANSLATIONS is not defined as an object');
+                }
+                
+                // Check for languages
+                const languages = Object.keys(TRANSLATIONS);
+                if (languages.length === 0) {
+                    throw new Error('No languages defined in TRANSLATIONS');
+                }
+                
+                output += `<p class="success">✓ TRANSLATIONS object found with ${languages.length} languages: ${languages.join(', ')}</p>`;
+                
+                // Count entries per language
+                output += '<table><tr><th>Language</th><th>Entries</th></tr>';
+                let hasMismatch = false;
+                const entryCounts = {};
+                
+                languages.forEach(lang => {
+                    const entries = Object.keys(TRANSLATIONS[lang]);
+                    entryCounts[lang] = entries.length;
+                    output += `<tr><td>${lang}</td><td>${entries.length}</td></tr>`;
+                });
+                
+                output += '</table>';
+                
+                // Check if all languages have the same keys
+                if (languages.length > 1) {
+                    output += '<h3>Key Comparisons</h3>';
+                    
+                    // Compare first language with others
+                    const firstLang = languages[0];
+                    const firstLangKeys = new Set(Object.keys(TRANSLATIONS[firstLang]));
+                    
+                    for (let i = 1; i < languages.length; i++) {
+                        const lang = languages[i];
+                        const langKeys = new Set(Object.keys(TRANSLATIONS[lang]));
+                        
+                        const missingFromFirst = [...langKeys].filter(key => !firstLangKeys.has(key));
+                        const missingFromLang = [...firstLangKeys].filter(key => !langKeys.has(key));
+                        
+                        if (missingFromFirst.length > 0 || missingFromLang.length > 0) {
+                            hasMismatch = true;
+                            output += `<p class="warning">⚠️ Key mismatches between ${firstLang} and ${lang}:</p>`;
+                            
+                            if (missingFromFirst.length > 0) {
+                                output += `<p>Keys in ${lang} but missing from ${firstLang}: ${missingFromFirst.join(', ')}</p>`;
+                            }
+                            
+                            if (missingFromLang.length > 0) {
+                                output += `<p>Keys in ${firstLang} but missing from ${lang}: ${missingFromLang.join(', ')}</p>`;
+                            }
+                        } else {
+                            output += `<p class="success">✓ ${firstLang} and ${lang} have matching keys</p>`;
+                        }
+                    }
+                }
+                
+                // Final validation result
+                if (hasMismatch) {
+                    output += '<h3 class="warning">⚠️ Validation completed with warnings</h3>';
+                } else {
+                    output += '<h3 class="success">✓ Validation completed successfully!</h3>';
+                }
+                
+            } catch (error) {
+                output += `<h3 class="error">✗ Validation failed</h3>`;
+                output += `<p class="error">${error.message}</p>`;
+                
+                if (error.stack) {
+                    output += `<pre>${error.stack}</pre>`;
+                }
+            }
+            
+            resultDiv.innerHTML = output;
+        }
+    </script>
+</body>
+</html>
