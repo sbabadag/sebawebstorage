@@ -55,10 +55,9 @@
                 btn.classList.add('active');
             }
         });
-    }
-
-    // Main language switching function
+    }    // Main language switching function
     window.setLanguage = function(lang) {
+        console.log("Setting language to:", lang);
         if (!window.TRANSLATIONS || !window.TRANSLATIONS[lang]) {
             console.error('Language not supported:', lang);
             return;
@@ -68,6 +67,12 @@
         localStorage.setItem('language', lang);
         updateContent(lang);
         updateButtonStates(lang);
+        
+        // Dispatch a custom event that the language has changed
+        const event = new CustomEvent('languageChanged', { detail: { language: lang } });
+        document.dispatchEvent(event);
+        
+        console.log("Language set to:", lang);
     };
 
     // Handle header background on scroll
@@ -104,19 +109,34 @@
         
         // Default to English
         return 'en';
-    }
-
-    // Initialize when DOM content is loaded
+    }    // Initialize when DOM content is loaded
     document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded, initializing language");
+        
+        // Add click listeners to language buttons to ensure they work
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.textContent.toLowerCase();
+                console.log("Lang button clicked:", lang);
+                window.setLanguage(lang);
+            });
+        });
+        
+        // Set initial language
         if (window.TRANSLATIONS) {
+            console.log("Translations available:", Object.keys(window.TRANSLATIONS));
             const preferredLang = getPreferredLanguage();
+            console.log("Preferred language:", preferredLang);
             setLanguage(preferredLang);
         } else {
             console.error('Translations not loaded');
             // Load translations dynamically if needed
             const script = document.createElement('script');
-            script.src = 'assets/js/translations.js';
-            script.onload = () => setLanguage(getPreferredLanguage());
+            script.src = '/assets/js/translations.js';
+            script.onload = () => {
+                console.log("Translations loaded dynamically");
+                setLanguage(getPreferredLanguage());
+            };
             document.head.appendChild(script);
         }
     });
