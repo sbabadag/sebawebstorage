@@ -9,6 +9,7 @@
     function initLanguageSystem() {
         // Prevent multiple initializations
         if (initialized) {
+            console.log("Language system already initialized.");
             return;
         }
         initialized = true;
@@ -26,6 +27,7 @@
         
         // Step 4: Apply current language
         const currentLang = localStorage.getItem('language') || 'en';
+        console.log("Applying initial language:", currentLang);
         applyLanguage(currentLang);
     }
     
@@ -104,6 +106,7 @@
         // Apply translations to elements with data-lang-key
         document.querySelectorAll('[data-lang-key]').forEach(element => {
             const key = element.getAttribute('data-lang-key');
+            console.log("Applying translation for key:", key);
             
             try {
                 // Navigate through nested objects using key path
