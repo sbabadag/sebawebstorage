@@ -81,8 +81,7 @@
             };
         }
     }
-    
-    // The core function to apply translations
+      // The core function to apply translations
     function applyLanguage(lang) {
         console.log("Applying language:", lang);
         
@@ -107,11 +106,23 @@
                 
                 if (translation && typeof translation !== 'object') {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = translation;
+                        // Handle both value and placeholder for form elements
+                        if (element.getAttribute('placeholder') !== null) {
+                            element.placeholder = translation;
+                        } else {
+                            element.value = translation;
+                        }
                     } else if (element.tagName === 'META') {
-                        element.content = translation;
-                    } else {
+                        // Update meta content
+                        element.setAttribute('content', translation);
+                    } else if (element.tagName === 'BUTTON' && element.type === 'submit') {
+                        // Handle submit buttons
                         element.textContent = translation;
+                        element.value = translation;
+                    } else {
+                        // Handle regular elements
+                        element.textContent = translation;
+                        // Special case for title tag
                         if (element.tagName === 'TITLE') {
                             document.title = translation;
                         }

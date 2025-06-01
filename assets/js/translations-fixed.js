@@ -1,6 +1,5 @@
 // Language translations for the website - Simplified version to ensure syntax is correct
-var TRANSLATIONS = {
-    en: {
+var TRANSLATIONS = {    en: {
         // Meta Tags
         "meta.title": "SEBA Engineering & Consultancy | Structural Steel & Concrete Design Experts",
         "meta.description": "Expert structural engineering solutions for steel and concrete structures. SEBA Engineering delivers precision in structural design, manufacturing, and site erection.",
@@ -40,11 +39,21 @@ var TRANSLATIONS = {
         "services.consultancy.fullTitle": "Expert Engineering Consultancy",
         "services.consultancy.fullDescription": "Our consultancy service provides strategic guidance throughout your project lifecycle. From feasibility studies to technical problem-solving, we offer expert insights to optimize your construction projects.",
         
+        // Share Section
+        "share.title": "Share Our Engineering Solutions",
+        
+        // Newsletter Section
+        "newsletter.title": "Stay Updated with Engineering Insights",
+        "newsletter.description": "Subscribe to our newsletter for the latest structural engineering news, project updates, and industry insights.",
+        "newsletter.emailPlaceholder": "Your Email Address",
+        "newsletter.subscribe": "Subscribe",
+        "newsletter.consent": "I agree to receive engineering newsletters and can unsubscribe at any time.",
+        "newsletter.privacy": "Your information is secure. We don't share your email with third parties.",
+        
         // Footer
         "footer": "© 2025 SEBA Engineering & Consultancy. All rights reserved."
     },
-    
-    tr: {
+      tr: {
         // Meta Tags
         "meta.title": "SEBA Mühendislik & Danışmanlık | Çelik ve Betonarme Yapı Uzmanları",
         "meta.description": "Çelik ve betonarme yapılar için uzman mühendislik çözümleri. SEBA Mühendislik yapısal tasarım, imalat ve saha montajında hassasiyet sunar.",
@@ -83,6 +92,17 @@ var TRANSLATIONS = {
         "services.consultancy.description": "İnşaat projeleri için uzman rehberlik ve teknik danışmanlık",
         "services.consultancy.fullTitle": "Uzman Mühendislik Danışmanlığı",
         "services.consultancy.fullDescription": "Danışmanlık hizmetimiz, proje yaşam döngünüz boyunca stratejik rehberlik sağlar. Fizibilite çalışmalarından teknik problem çözmeye kadar, inşaat projelerinizi optimize etmek için uzman içgörüler sunuyoruz.",
+        
+        // Share Section
+        "share.title": "Mühendislik Çözümlerimizi Paylaşın",
+        
+        // Newsletter Section
+        "newsletter.title": "Mühendislik Gelişmelerinden Haberdar Olun",
+        "newsletter.description": "En son yapısal mühendislik haberleri, proje güncellemeleri ve sektör bilgileri için bültenimize abone olun.",
+        "newsletter.emailPlaceholder": "E-posta Adresiniz",
+        "newsletter.subscribe": "Abone Ol",
+        "newsletter.consent": "Mühendislik bültenlerini almayı kabul ediyorum ve istediğim zaman abonelikten çıkabilirim.",
+        "newsletter.privacy": "Bilgileriniz güvendedir. E-posta adresinizi üçüncü taraflarla paylaşmıyoruz.",
         
         // Footer
         "footer": "© 2025 SEBA Mühendislik & Danışmanlık. Tüm hakları saklıdır."
