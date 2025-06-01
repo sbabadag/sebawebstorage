@@ -27,15 +27,7 @@ const URLS_TO_CACHE = [
   '/assets/images/2314f2e2-5780-43fc-b952-8a26e76e4b34.JPEG',
   '/assets/images/2786a985-ea94-4cd2-83bc-b427783e80ca.JPEG',
   '/assets/images/36e738dd-a3e4-40b0-bb24-8d332f238fa1.JPEG',
-  '/assets/images/c7e4a198-4281-433f-934b-849b7c907062.JPEG',
-  '/assets/images/icons/icon-72x72.png',
-  '/assets/images/icons/icon-96x96.png',
-  '/assets/images/icons/icon-128x128.png',
-  '/assets/images/icons/icon-144x144.png',
-  '/assets/images/icons/icon-152x152.png',
-  '/assets/images/icons/icon-192x192.png',
-  '/assets/images/icons/icon-384x384.png',
-  '/assets/images/icons/icon-512x512.png'
+  '/assets/images/c7e4a198-4281-433f-934b-849b7c907062.JPEG'
 ];
 
 // Install Service Worker
