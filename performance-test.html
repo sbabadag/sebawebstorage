@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .test-section {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .result-box {
+      background-color: #f7f7f7;
+      padding: 10px;
+      border-left: 4px solid #2196F3;
+    }
+    .error {
+      border-left-color: #f44336;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    button:hover {
+      background-color: #0b7dda;
+    }
+    .lang-btn {
+      padding: 5px 10px;
+      background-color: #f1f1f1;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+    .lang-btn.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  
+  <!-- Load language system -->
+  <script src="assets/js/translations-fixed.js"></script>
+  <script src="assets/js/high-performance-language.js"></script>
+  
+  <script>
+    // Performance measurement
+    const pageLoadStart = Date.now();
+    const metrics = {
+      pageStartTime: pageLoadStart,
+      domContentLoaded: null,
+      windowLoaded: null,
+      firstPaint: null,
+      testResults: {}
+    };
+    
+    // Record DOMContentLoaded time
+    document.addEventListener('DOMContentLoaded', function() {
+      metrics.domContentLoaded = Date.now() - pageLoadStart;
+      updateMetricsDisplay();
+    });
+    
+    // Record window.onload time
+    window.addEventListener('load', function() {
+      metrics.windowLoaded = Date.now() - pageLoadStart;
+      updateMetricsDisplay();
+      
+      // Get first paint time if available
+      if (window.performance && window.performance.getEntriesByType) {
+        const paintEntries = window.performance.getEntriesByType('paint');
+        const firstPaint = paintEntries.find(entry => entry.name === 'first-paint');
+        if (firstPaint) {
+          metrics.firstPaint = Math.round(firstPaint.startTime);
+          updateMetricsDisplay();
+        }
+      }
+    });
+    
+    // Update the metrics display
+    function updateMetricsDisplay() {
+      const metricsTable = document.getElementById('metrics-table');
+      if (!metricsTable) return;
+      
+      let html = `
+        <tr>
+          <th>Metric</th>
+          <th>Time (ms)</th>
+        </tr>
+        <tr>
+          <td>DOMContentLoaded</td>
+          <td>${metrics.domContentLoaded || 'Pending...'}</td>
+        </tr>
+        <tr>
+          <td>Window Loaded</td>
+          <td>${metrics.windowLoaded || 'Pending...'}</td>
+        </tr>
+        <tr>
+          <td>First Paint</td>
+          <td>${metrics.firstPaint || 'Pending...'}</td>
+        </tr>
+      `;
+      
+      // Add test results
+      for (const [testName, result] of Object.entries(metrics.testResults)) {
+        html += `
+          <tr>
+            <td>${testName}</td>
+            <td>${result} ms</td>
+          </tr>
+        `;
+      }
+      
+      metricsTable.innerHTML = html;
+    }
+    
+    // Test language switching performance
+    function testLanguageSwitching() {
+      const resultBox = document.getElementById('language-test-results');
+      resultBox.innerHTML = 'Running test...';
+      
+      const startTime = Date.now();
+      
+      // Get current language
+      const currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+      const targetLang = currentLang === 'en' ? 'tr' : 'en';
+      
+      // Switch language
+      window.setLanguage(targetLang);
+      
+      // Measure time after a short delay to ensure completion
+      setTimeout(function() {
+        const endTime = Date.now();
+        const duration = endTime - startTime;
+        
+        metrics.testResults['Language Switch'] = duration;
+        updateMetricsDisplay();
+        
+        resultBox.innerHTML = `
+          <p>Language switched from ${currentLang} to ${targetLang} in ${duration}ms.</p>
+          <p>Current language: ${document.documentElement.getAttribute('data-lang')}</p>
+          <p>Number of translated elements: ${document.querySelectorAll('[data-lang-key]').length}</p>
+        `;
+      }, 100);
+    }
+    
+    // Check for errors
+    function checkForErrors() {
+      const resultBox = document.getElementById('error-test-results');
+      resultBox.innerHTML = 'Checking for errors...';
+      
+      // Check translations
+      const translationsAvailable = window.TRANSLATIONS ? true : false;
+      const setLanguageAvailable = window.setLanguage ? true : false;
+      
+      // Check language button functionality
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let buttonsWithDataLang = 0;
+      let buttonsWithActiveClass = 0;
+      
+      langButtons.forEach(btn => {
+        if (btn.getAttribute('data-lang')) buttonsWithDataLang++;
+        if (btn.classList.contains('active')) buttonsWithActiveClass++;
+      });
+      
+      // Build the results
+      let resultsHtml = `
+        <p><strong>Core Functionality Check:</strong></p>
+        <ul>
+          <li>TRANSLATIONS object: ${translationsAvailable ? '✅ Available' : '❌ Not found'}</li>
+          <li>setLanguage function: ${setLanguageAvailable ? '✅ Available' : '❌ Not found'}</li>
+          <li>Language buttons: ${langButtons.length} found, ${buttonsWithDataLang} with data-lang</li>
+          <li>Active language buttons: ${buttonsWithActiveClass} (should be 1)</li>
+        </ul>
+      `;
+      
+      // Check for errors
+      const errors = [];
+      
+      if (!translationsAvailable) errors.push('TRANSLATIONS object not available');
+      if (!setLanguageAvailable) errors.push('setLanguage function not available');
+      if (buttonsWithDataLang < langButtons.length) errors.push('Some language buttons missing data-lang');
+      if (buttonsWithActiveClass !== 1) errors.push('Incorrect number of active language buttons');
+      
+      if (errors.length > 0) {
+        resultsHtml += `
+          <p><strong>Errors Found:</strong></p>
+          <ul>
+            ${errors.map(error => `<li>${error}</li>`).join('')}
+          </ul>
+        `;
+        resultBox.classList.add('error');
+      } else {
+        resultsHtml += '<p>✅ No errors detected</p>';
+        resultBox.classList.remove('error');
+      }
+      
+      resultBox.innerHTML = resultsHtml;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Website Performance Diagnostics</h1>
+    <p>This page tests the performance of the website, particularly the language switching functionality.</p>
+    
+    <div class="test-section">
+      <h2>Language Controls</h2>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
+      </div>
+      
+      <h3>Sample Translatable Content</h3>
+      <p data-lang-key="home">Home</p>
+      <p data-lang-key="about">About</p>
+      <p data-lang-key="services">Services</p>
+      <p data-lang-key="footer">© 2025 SEBA Engineering & Consultancy. All rights reserved.</p>
+    </div>
+    
+    <div class="test-section">
+      <h2>Performance Metrics</h2>
+      <table id="metrics-table">
+        <tr>
+          <th>Metric</th>
+          <th>Time (ms)</th>
+        </tr>
+        <tr>
+          <td>DOMContentLoaded</td>
+          <td>Measuring...</td>
+        </tr>
+        <tr>
+          <td>Window Loaded</td>
+          <td>Measuring...</td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="test-section">
+      <h2>Performance Tests</h2>
+      
+      <div>
+        <button onclick="testLanguageSwitching()">Test Language Switching</button>
+        <div id="language-test-results" class="result-box">
+          Click the button to test language switching performance.
+        </div>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <button onclick="checkForErrors()">Check For Errors</button>
+        <div id="error-test-results" class="result-box">
+          Click the button to check for potential errors.
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>Console Output</h2>
+      <p>Open your browser's developer console (F12) to see detailed logs and any errors.</p>
+      <button onclick="window.debugLanguageSystem(true)">Enable Debug Logs</button>
+      <button onclick="window.debugLanguageSystem(false)">Disable Debug Logs</button>
+    </div>
+  </div>
+  
+  <script>
+    // Run initial checks
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait a bit for everything to initialize
+      setTimeout(checkForErrors, 500);
+    });
+  </script>
+</body>
+</html>
