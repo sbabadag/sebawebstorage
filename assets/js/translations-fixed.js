@@ -32,10 +32,11 @@ var TRANSLATIONS = {    en: {
         "hero.cta": "Explore Our Work",
         
         // New sections for Arup-inspired design
-        "expertise.title": "Exploring the future of construction",
-        "projects.title": "Our Work",
+        "expertise.title": "Exploring the future of construction",        "projects.title": "Our Work",
         "projects.viewMore": "See our projects",
+        "projects.description": "Learn more about the work we do and how it makes a difference to clients and communities across multiple industries.",
         "issues.title": "Key Issues",
+        "issues.description": "We explore some of the biggest questions facing the built environment and structural engineering industry.",
         
         // Services Section
         "services.title": "Our Engineering Services",
@@ -67,10 +68,11 @@ var TRANSLATIONS = {    en: {
         "newsletter.subscribe": "Subscribe",
         "newsletter.consent": "I agree to receive engineering newsletters and can unsubscribe at any time.",
         "newsletter.privacy": "Your information is secure. We don't share your email with third parties.",
-        
-        // Footer
-        "footer": "© 2025 SEBA Engineering & Consultancy. All rights reserved."
-    },    tr: {
+          // Footer        "footer": "© 2025 SEBA Engineering & Consultancy. All rights reserved.",
+        "footer.tagline": "Shaping a better built environment",
+        "footer.contactUs": "Contact Us",
+        "footer.navigation": "Navigation"
+    },tr: {
         // Meta Tags
         "meta.title": "SEBA Mühendislik & Danışmanlık | Çelik ve Betonarme Yapı Uzmanları",
         "meta.description": "Çelik ve betonarme yapılar için uzman mühendislik çözümleri. SEBA Mühendislik yapısal tasarım, imalat ve saha montajında hassasiyet sunar.",
@@ -103,10 +105,11 @@ var TRANSLATIONS = {    en: {
         "hero.cta": "Çalışmalarımızı İnceleyin",
         
         // New sections for Arup-inspired design
-        "expertise.title": "İnşaatın geleceğini keşfediyoruz",
-        "projects.title": "Çalışmalarımız",
+        "expertise.title": "İnşaatın geleceğini keşfediyoruz",        "projects.title": "Çalışmalarımız",
         "projects.viewMore": "Projelerimizi görün",
+        "projects.description": "Yaptığımız işler hakkında daha fazla bilgi edinin ve müşterilerimize ve topluluklara birçok sektörde nasıl fark yarattığını görün.",
         "issues.title": "Temel Konular",
+        "issues.description": "Yapılı çevre ve yapısal mühendislik sektörünün karşılaştığı en büyük soruları inceliyoruz.",
         
         // Services Section
         "services.title": "Mühendislik Hizmetlerimiz",
@@ -138,9 +141,10 @@ var TRANSLATIONS = {    en: {
         "newsletter.subscribe": "Abone Ol",
         "newsletter.consent": "Mühendislik bültenlerini almayı kabul ediyorum ve istediğim zaman abonelikten çıkabilirim.",
         "newsletter.privacy": "Bilgileriniz güvendedir. E-posta adresinizi üçüncü taraflarla paylaşmıyoruz.",
-        
-        // Footer
-        "footer": "© 2025 SEBA Mühendislik & Danışmanlık. Tüm hakları saklıdır."
+          // Footer        "footer": "© 2025 SEBA Mühendislik & Danışmanlık. Tüm hakları saklıdır.",
+        "footer.tagline": "Daha iyi bir yapılı çevre şekillendiriyoruz",
+        "footer.contactUs": "Bize Ulaşın",
+        "footer.navigation": "Navigasyon"
     }
 };
 
