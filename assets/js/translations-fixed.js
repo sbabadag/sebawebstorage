@@ -5,6 +5,12 @@ var TRANSLATIONS = {    en: {
         "meta.description": "Expert structural engineering solutions for steel and concrete structures. SEBA Engineering delivers precision in structural design, manufacturing, and site erection.",
         "meta.ogTitle": "SEBA Engineering & Consultancy | Structural Engineering Experts",
         "meta.ogDescription": "Expert structural engineering solutions for steel and concrete structures. Precision in structural design, manufacturing, and site erection.",
+        
+        // About Page Meta Tags
+        "aboutPage.title": "About SEBA Engineering & Consultancy | Our Expertise & Values",
+        "aboutPage.description": "Learn about SEBA Engineering's expertise in structural engineering, our values, and our commitment to excellence in steel and concrete construction.",
+        "aboutPage.ogTitle": "About SEBA Engineering & Consultancy",
+        "aboutPage.ogDescription": "Leading structural engineering firm specializing in steel and concrete construction.",
 
         // Navigation & Common
         "home": "Home",
@@ -13,6 +19,14 @@ var TRANSLATIONS = {    en: {
         "projects": "Projects",
         "insights": "Insights",
         "contact": "Contact",
+        
+        // About Page
+        "aboutTitle": "About SEBA Engineering & Consultancy",
+        "description1": "We are a dedicated structural engineering and consultancy firm providing expert solutions in reinforced concrete and steel-framed structures. At SEBA, we transform engineering challenges into efficient, buildable, and enduring solutions.",
+        "description2": "Our expertise spans across the entire project lifecycle—from structural design and detailing to manufacturing and on-site erection. We deliver precision and strength in every component we create. Our projects reflect our deep understanding of structural performance, material behavior, and construction practicality.",
+        "description3": "Clients across industrial, commercial, agricultural, and municipal sectors rely on us to engineer steel and concrete systems that are not only structurally sound but also time- and cost-efficient. We pride ourselves on delivering high-performance engineering that meets today's standards for safety, sustainability, and innovation.",
+        "description4": "SEBA is built on hands-on experience, technical excellence, and a commitment to building with integrity. Whether designing a complex steel framework or managing large-scale site assembly, we bring clarity, reliability, and engineering strength to every project.",
+        "quote": "\"We don't just build structures. We engineer confidence.\"",
 
         // Hero Section
         "hero.title": "Shaping a Better Built Environment",
@@ -52,13 +66,18 @@ var TRANSLATIONS = {    en: {
         
         // Footer
         "footer": "© 2025 SEBA Engineering & Consultancy. All rights reserved."
-    },
-      tr: {
+    },    tr: {
         // Meta Tags
         "meta.title": "SEBA Mühendislik & Danışmanlık | Çelik ve Betonarme Yapı Uzmanları",
         "meta.description": "Çelik ve betonarme yapılar için uzman mühendislik çözümleri. SEBA Mühendislik yapısal tasarım, imalat ve saha montajında hassasiyet sunar.",
         "meta.ogTitle": "SEBA Mühendislik & Danışmanlık | Yapı Mühendisliği Uzmanları",
         "meta.ogDescription": "Çelik ve betonarme yapılar için uzman mühendislik çözümleri. Yapısal tasarım, imalat ve saha montajında hassasiyet.",
+        
+        // About Page Meta Tags
+        "aboutPage.title": "SEBA Mühendislik & Danışmanlık Hakkında | Uzmanlığımız ve Değerlerimiz",
+        "aboutPage.description": "SEBA Mühendisliğin yapısal mühendislikteki uzmanlığı, değerlerimiz ve çelik ve beton yapılarda mükemmelliğe olan bağlılığımız hakkında bilgi edinin.",
+        "aboutPage.ogTitle": "SEBA Mühendislik & Danışmanlık Hakkında",
+        "aboutPage.ogDescription": "Çelik ve beton yapılarda uzmanlaşmış lider yapısal mühendislik firması.",
 
         // Navigation & Common
         "home": "Ana Sayfa",
@@ -67,6 +86,14 @@ var TRANSLATIONS = {    en: {
         "projects": "Projeler",
         "insights": "Makaleler",
         "contact": "İletişim",
+        
+        // About Page
+        "aboutTitle": "SEBA Mühendislik & Danışmanlık Hakkında",
+        "description1": "Betonarme ve çelik yapılarda uzman çözümler sunan özel bir yapısal mühendislik ve danışmanlık firmasıyız. SEBA'da, mühendislik zorluklarını verimli, uygulanabilir ve kalıcı çözümlere dönüştürüyoruz.",
+        "description2": "Uzmanlığımız, yapısal tasarım ve detaylandırmadan imalat ve sahada montaja kadar tüm proje yaşam döngüsünü kapsar. Yarattığımız her bileşende hassasiyet ve dayanıklılık sunuyoruz. Projelerimiz, yapısal performans, malzeme davranışı ve inşaat pratikliği konularındaki derin anlayışımızı yansıtır.",
+        "description3": "Endüstriyel, ticari, tarımsal ve belediye sektörlerindeki müşterilerimiz, sadece yapısal olarak sağlam değil, aynı zamanda zaman ve maliyet açısından verimli olan çelik ve beton sistemleri mühendisliği için bize güvenirler. Güvenlik, sürdürülebilirlik ve inovasyon için günümüz standartlarını karşılayan yüksek performanslı mühendislik sunmaktan gurur duyuyoruz.",
+        "description4": "SEBA, uygulamalı deneyim, teknik mükemmellik ve dürüstlükle inşa etme taahhüdü üzerine kurulmuştur. İster karmaşık bir çelik çerçeve tasarlıyor olalım, ister büyük ölçekli saha montajını yönetiyor olalım, her projeye netlik, güvenilirlik ve mühendislik gücü katıyoruz.",
+        "quote": "\"Sadece yapılar inşa etmiyoruz. Güven mühendisliği yapıyoruz.\"",
 
         // Hero Section
         "hero.title": "Daha İyi Bir Yapılı Çevre Şekillendiriyoruz",
