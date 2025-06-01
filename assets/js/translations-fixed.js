@@ -26,12 +26,16 @@ var TRANSLATIONS = {    en: {
         "description2": "Our expertise spans across the entire project lifecycle—from structural design and detailing to manufacturing and on-site erection. We deliver precision and strength in every component we create. Our projects reflect our deep understanding of structural performance, material behavior, and construction practicality.",
         "description3": "Clients across industrial, commercial, agricultural, and municipal sectors rely on us to engineer steel and concrete systems that are not only structurally sound but also time- and cost-efficient. We pride ourselves on delivering high-performance engineering that meets today's standards for safety, sustainability, and innovation.",
         "description4": "SEBA is built on hands-on experience, technical excellence, and a commitment to building with integrity. Whether designing a complex steel framework or managing large-scale site assembly, we bring clarity, reliability, and engineering strength to every project.",
-        "quote": "\"We don't just build structures. We engineer confidence.\"",
-
-        // Hero Section
-        "hero.title": "Shaping a Better Built Environment",
-        "hero.description": "We deliver precise, buildable solutions in structural steel and reinforced concrete—turning complex engineering challenges into safe, efficient, and durable realities.",
+        "quote": "\"We don't just build structures. We engineer confidence.\"",        // Hero Section
+        "hero.title": "We shape a better built environment",
+        "hero.description": "We deliver precision in structural engineering, turning complex challenges into safe, efficient, and durable realities that stand the test of time.",
         "hero.cta": "Explore Our Work",
+        
+        // New sections for Arup-inspired design
+        "expertise.title": "Exploring the future of construction",
+        "projects.title": "Our Work",
+        "projects.viewMore": "See our projects",
+        "issues.title": "Key Issues",
         
         // Services Section
         "services.title": "Our Engineering Services",
@@ -93,12 +97,16 @@ var TRANSLATIONS = {    en: {
         "description2": "Uzmanlığımız, yapısal tasarım ve detaylandırmadan imalat ve sahada montaja kadar tüm proje yaşam döngüsünü kapsar. Yarattığımız her bileşende hassasiyet ve dayanıklılık sunuyoruz. Projelerimiz, yapısal performans, malzeme davranışı ve inşaat pratikliği konularındaki derin anlayışımızı yansıtır.",
         "description3": "Endüstriyel, ticari, tarımsal ve belediye sektörlerindeki müşterilerimiz, sadece yapısal olarak sağlam değil, aynı zamanda zaman ve maliyet açısından verimli olan çelik ve beton sistemleri mühendisliği için bize güvenirler. Güvenlik, sürdürülebilirlik ve inovasyon için günümüz standartlarını karşılayan yüksek performanslı mühendislik sunmaktan gurur duyuyoruz.",
         "description4": "SEBA, uygulamalı deneyim, teknik mükemmellik ve dürüstlükle inşa etme taahhüdü üzerine kurulmuştur. İster karmaşık bir çelik çerçeve tasarlıyor olalım, ister büyük ölçekli saha montajını yönetiyor olalım, her projeye netlik, güvenilirlik ve mühendislik gücü katıyoruz.",
-        "quote": "\"Sadece yapılar inşa etmiyoruz. Güven mühendisliği yapıyoruz.\"",
-
-        // Hero Section
-        "hero.title": "Daha İyi Bir Yapılı Çevre Şekillendiriyoruz",
-        "hero.description": "Çelik ve betonarme yapılarda hassas, uygulanabilir çözümler sunuyoruz—karmaşık mühendislik zorluklarını güvenli, verimli ve dayanıklı gerçekliklere dönüştürüyoruz.",
+        "quote": "\"Sadece yapılar inşa etmiyoruz. Güven mühendisliği yapıyoruz.\"",        // Hero Section
+        "hero.title": "Daha iyi bir yapılı çevre şekillendiriyoruz",
+        "hero.description": "Yapısal mühendislikte hassasiyet sunarak, karmaşık zorlukları güvenli, verimli ve zamana dayanıklı gerçeklere dönüştürüyoruz.",
         "hero.cta": "Çalışmalarımızı İnceleyin",
+        
+        // New sections for Arup-inspired design
+        "expertise.title": "İnşaatın geleceğini keşfediyoruz",
+        "projects.title": "Çalışmalarımız",
+        "projects.viewMore": "Projelerimizi görün",
+        "issues.title": "Temel Konular",
         
         // Services Section
         "services.title": "Mühendislik Hizmetlerimiz",

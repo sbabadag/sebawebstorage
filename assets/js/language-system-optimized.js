@@ -1,4 +1,4 @@
-// Optimized Unified Language System for SEBA Engineering Website
+// Optimized Unified Language System for SEBA Engineering Website - Arup-inspired Version
 (function() {
     "use strict";
     
@@ -14,7 +14,7 @@
         }
         initialized = true;
         
-        console.log("Initializing optimized language system...");
+        console.log("Initializing optimized language system (Arup-inspired)...");
         
         // Step 1: Ensure translations are available
         ensureTranslations();
