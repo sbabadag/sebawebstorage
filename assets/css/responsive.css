@@ -1,0 +1,125 @@
+/* Responsive styles for SEBA Engineering website */
+
+/* Large screens (default styles apply) */
+
+/* Medium screens (tablets, 768px and up) */
+@media screen and (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small screens (phones, 767px and down) */
+@media screen and (max-width: 767px) {
+  /* Navigation styles for mobile */
+  header {
+    padding: 1rem 0;
+  }
+  
+  nav {
+    flex-direction: column;
+  }
+  
+  .nav-links {
+    margin-top: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-links a {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .lang-switcher {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Hero section */
+  .hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  /* Service cards */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .service-card img {
+    height: 200px;
+  }
+  
+  /* Newsletter section */
+  .newsletter-section {
+    padding: 2rem 1rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    flex-direction: column;
+  }
+  
+  .form-group input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-subscribe {
+    width: 100%;
+  }
+  
+  /* Social share */
+  .social-share a {
+    margin: 0.25rem;
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .service-card {
+    padding: 1rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1.25rem;
+  }
+}

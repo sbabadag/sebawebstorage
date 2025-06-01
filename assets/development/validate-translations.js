@@ -1,6 +1,6 @@
 // Validate translations.js syntax
 try {
-  const content = require('./assets/js/translations.js');
+  const content = require('./translations.js');
   console.log('✓ translations.js syntax is valid');
   console.log('Available languages:', Object.keys(content));
   console.log('Number of EN entries:', Object.keys(content.en).length);
