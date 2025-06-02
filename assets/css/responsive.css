@@ -1,5 +1,14 @@
 /* Responsive styles for SEBA Engineering website */
 
+/* Language-specific display elements */
+html[data-lang="en"] .lang-tr {
+  display: none;
+}
+
+html[data-lang="tr"] .lang-en {
+  display: none;
+}
+
 /* Large screens (default styles apply) */
 
 /* Medium screens (tablets, 768px and up) */

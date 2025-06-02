@@ -42,5 +42,7 @@ To make changes to the website:
 ## Contact
 
 For questions about this website or SEBA Engineering services, please contact:
-- Email: contact@selahattinbabadag.com
+- Email (English): contact@selahattinbabadag.com
+- Email (Turkish): info@selahattinbabadag.com
+- Phone: +90 532 4078125
 - Website: https://selahattinbabadag.com
