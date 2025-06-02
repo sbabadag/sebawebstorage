@@ -1,0 +1,15 @@
+/* Custom styles for the SEBA Engineering Logo */
+.logo img {
+  max-width: 100%;
+  height: auto;
+  mix-blend-mode: multiply; /* Helps with background blending */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.1)); /* Subtle shadow */
+}
+
+.footer-logo img {
+  max-width: 100%;
+  height: auto;
+  mix-blend-mode: multiply; /* Helps with background blending */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.1)); /* Subtle shadow */
+  margin-bottom: 0.5rem;
+}
