@@ -1,63 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-lang-key="projects.title">Projects & References | SEBA</title>  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#002d5c" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.ico" />
+  <link rel="manifest" href="manifest.json" />
+  <title data-lang-key="projects.pageTitle">Projects | SEBA Engineering & Consultancy</title>
+  <meta name="description" data-lang-key="projects.metaDescription" content="Explore SEBA Engineering's portfolio of structural engineering projects across industrial, commercial, and infrastructure sectors." />
+    <link rel="stylesheet" href="assets/css/arup-inspired.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/logo.css" />
+  <link rel="stylesheet" href="assets/css/projects.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Load scripts for language system -->
   <script src="assets/js/translations-fixed.js"></script>
   <script src="assets/js/language-system-optimized.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
-    <h1 data-lang-key="projects.title">Projects & References</h1>
-    <nav>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/icons/SEBA_LOGO.png" alt="SEBA Engineering Logo" width="180" height="auto">
+        </a>
+      </div>
       <div class="nav-links">
         <a href="index.html" data-lang-key="home">Home</a>
         <a href="about.html" data-lang-key="about">About</a>
         <a href="services.html" data-lang-key="services">Services</a>
-        <a href="projects.html" data-lang-key="projects">Projects</a>
+        <a href="projects.html" class="active" data-lang-key="projects">Projects</a>
         <a href="blog.html" data-lang-key="insights">Insights</a>
         <a href="contact.html" data-lang-key="contact">Contact</a>
-      </div>      <div class="lang-switcher">
+      </div>
+      
+      <div class="lang-switcher">
         <button class="lang-btn" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="tr">TR</button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <section class="content">
-    <h2 data-lang-key="projects.subtitle">Explore Our Work</h2>
-    <div class="filters">
-      <button onclick="filterProjects('all')" data-lang-key="projects.filters.all">All</button>
-      <button onclick="filterProjects('design')" data-lang-key="projects.filters.design">Design</button>
-      <button onclick="filterProjects('fabrication')" data-lang-key="projects.filters.fabrication">Fabrication</button>
-      <button onclick="filterProjects('erection')" data-lang-key="projects.filters.erection">Erection</button>
-      <button onclick="filterProjects('architectural')" data-lang-key="projects.filters.architectural">Architectural</button>
-    </div>
-    <div class="project-gallery">
-      <div class="project-item design">
-        <img src="assets/images/design/5fc463d0-9e57-42a6-9af8-24b877711c8a.JPEG" alt="Steel Hall Design">
-        <p data-lang-key="projects.items.steelHall">Steel Hall Design – Ankara</p>
-      </div>
-      <div class="project-item fabrication">
-        <img src="assets/images/2786a985-ea94-4cd2-83bc-b427783e80ca.JPEG" alt="Manufacturing Process">
-        <p data-lang-key="projects.items.modularUnit">Modular Unit Production</p>
-      </div>
-      <div class="project-item erection">
-        <img src="assets/images/36e738dd-a3e4-40b0-bb24-8d332f238fa1.JPEG" alt="Site Erection">
-        <p data-lang-key="projects.items.warehouse">On-site Erection – Warehouse</p>
-      </div>
-      <div class="project-item architectural">
-        <img src="assets/images/2314f2e2-5780-43fc-b952-8a26e76e4b34.JPEG" alt="Architectural Design">
-        <p data-lang-key="projects.items.facade">Architectural Façade Concept</p>
+  <!-- Hero Section for Projects Page -->
+  <section class="hero projects-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-lang-key="projects.heroTitle">Our Engineering Projects</h1>
+        <p data-lang-key="projects.heroDescription">Discover our work shaping the future of built environments through innovative structural engineering solutions.</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p data-lang-key="footer">&copy; 2025 SEBA Engineering & Consultancy</p>
+  <!-- Project Categories Section (Similar to Arup's "Explore a selection of our projects") -->
+  <section class="project-categories">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.categoriesTitle">Explore Projects By Sector</h2>
+      
+      <div class="category-cards">
+        <a href="#industrial" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h3 data-lang-key="projects.categories.industrial">Industrial</h3>
+          <p data-lang-key="projects.categories.industrialDesc">Steel structures for manufacturing, warehouses, and industrial facilities</p>
+        </a>
+        
+        <a href="#commercial" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 data-lang-key="projects.categories.commercial">Commercial</h3>
+          <p data-lang-key="projects.categories.commercialDesc">Office buildings, retail centers, and mixed-use developments</p>
+        </a>
+        
+        <a href="#infrastructure" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-road"></i>
+          </div>
+          <h3 data-lang-key="projects.categories.infrastructure">Infrastructure</h3>
+          <p data-lang-key="projects.categories.infrastructureDesc">Bridges, transportation hubs, and public facilities</p>
+        </a>
+        
+        <a href="#special" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 data-lang-key="projects.categories.special">Special Projects</h3>
+          <p data-lang-key="projects.categories.specialDesc">Architecturally complex and unique structural challenges</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section (Similar to Arup's "Producing a lasting impact") -->
+  <section class="featured-projects">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.featuredTitle">Featured Projects</h2>
+      <p class="section-desc" data-lang-key="projects.featuredDesc">Showcasing our most innovative and impactful engineering solutions</p>
+      
+      <div class="projects-grid">
+        <div class="project-item">
+          <div class="project-image">
+            <img src="assets/images/8558b156-95f4-4c15-831b-9b80c2de4a05.JPEG" alt="Industrial Steel Facility" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Industrial Steel Facility</h3>
+            <p class="project-location">Ankara, Turkey</p>
+            <p class="project-description">Large-scale manufacturing plant with advanced structural solutions for operational efficiency and seismic resilience.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="project-item">
+          <div class="project-image">
+            <img src="assets/images/7c4a69d4-464e-4f32-a17f-48123e7bb476.JPEG" alt="Commercial Center" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Mixed-Use Commercial Center</h3>
+            <p class="project-location">Istanbul, Turkey</p>
+            <p class="project-description">Urban commercial development featuring innovative concrete core design and multi-level structural integration.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="project-item">
+          <div class="project-image">
+            <img src="assets/images/4f1af8b1-185a-4c5d-9a85-47ac96a0de04.JPEG" alt="Transport Infrastructure" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Steel-Concrete Composite Bridge</h3>
+            <p class="project-location">Izmir, Turkey</p>
+            <p class="project-description">Transportation infrastructure featuring steel-concrete composite design with enhanced seismic resistance capabilities.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="project-item">
+          <div class="project-image">
+            <img src="assets/images/2ddbf2a8-dd62-4f34-bfa6-15208baf6690.JPEG" alt="Energy Facility" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Renewable Energy Facility</h3>
+            <p class="project-location">Antalya, Turkey</p>
+            <p class="project-description">Specialized structural engineering for a renewable energy production facility with sustainable design principles.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects by Category Sections -->
+  <section id="industrial" class="project-category-section">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.industrial.title">Industrial Projects</h2>
+      <p class="section-desc" data-lang-key="projects.industrial.desc">Engineered structures that optimize operational efficiency and durability for industrial operations</p>
+      
+      <div class="projects-list">
+        <div class="project-card">
+          <img src="assets/images/design/5fc463d0-9e57-42a6-9af8-24b877711c8a.JPEG" alt="Steel Hall Design">
+          <div class="project-card-content">
+            <h3>Steel Hall Design – Ankara</h3>
+            <p>Large-span industrial facility with optimized structural efficiency</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="assets/images/2786a985-ea94-4cd2-83bc-b427783e80ca.JPEG" alt="Manufacturing Facility">
+          <div class="project-card-content">
+            <h3>Modular Manufacturing Facility</h3>
+            <p>Advanced production plant with modular construction techniques</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="assets/images/36e738dd-a3e4-40b0-bb24-8d332f238fa1.JPEG" alt="Warehouse Structure">
+          <div class="project-card-content">
+            <h3>Logistics Warehouse – Istanbul</h3>
+            <p>Large-scale warehouse with optimized column spacing and loading capacity</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="commercial" class="project-category-section">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.commercial.title">Commercial Projects</h2>
+      <p class="section-desc" data-lang-key="projects.commercial.desc">Creating safe, efficient, and aesthetically pleasing commercial spaces</p>
+      
+      <div class="projects-list">
+        <div class="project-card">
+          <img src="assets/images/7c4a69d4-464e-4f32-a17f-48123e7bb476.JPEG" alt="Office Building">
+          <div class="project-card-content">
+            <h3>Corporate Office Tower</h3>
+            <p>Multi-story commercial building with innovative structural solutions</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="assets/images/2314f2e2-5780-43fc-b952-8a26e76e4b34.JPEG" alt="Retail Center">
+          <div class="project-card-content">
+            <h3>Shopping Center – Istanbul</h3>
+            <p>Retail complex with large-span roof structure and open floor plans</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="infrastructure" class="project-category-section">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.infrastructure.title">Infrastructure Projects</h2>
+      <p class="section-desc" data-lang-key="projects.infrastructure.desc">Engineering solutions for transportation and public infrastructure</p>
+      
+      <div class="projects-list">
+        <div class="project-card">
+          <img src="assets/images/4f1af8b1-185a-4c5d-9a85-47ac96a0de04.JPEG" alt="Bridge Structure">
+          <div class="project-card-content">
+            <h3>Composite Bridge Design</h3>
+            <p>Steel-concrete composite bridge with enhanced seismic performance</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="assets/images/5b6693ee-6f7e-4717-a645-f9a1abbc1b0e.JPEG" alt="Transportation Hub">
+          <div class="project-card-content">
+            <h3>Transit Terminal</h3>
+            <p>Transportation hub featuring long-span roof structures</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="special" class="project-category-section">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.special.title">Special Projects</h2>
+      <p class="section-desc" data-lang-key="projects.special.desc">Unique structural challenges requiring innovative engineering solutions</p>
+      
+      <div class="projects-list">
+        <div class="project-card">
+          <img src="assets/images/2aa21e76-e96d-47e7-bba5-ebe6734ef30f.JPEG" alt="Architectural Structure">
+          <div class="project-card-content">
+            <h3>Architectural Façade System</h3>
+            <p>Complex geometrical façade with integrated structural support</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="assets/images/2ddbf2a8-dd62-4f34-bfa6-15208baf6690.JPEG" alt="Special Facility">
+          <div class="project-card-content">
+            <h3>Energy Research Facility</h3>
+            <p>Specialized structure with unique requirements for energy research</p>
+            <a href="#" class="btn-outline">View details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Filter Section (Search/Filter Component) -->
+  <section class="project-filter">
+    <div class="container">
+      <h2 class="section-header" data-lang-key="projects.filter.title">Find Projects</h2>
+      
+      <div class="filter-controls">
+        <div class="search-box">
+          <input type="text" id="project-search" placeholder="Search projects..." data-lang-key="projects.filter.searchPlaceholder">
+          <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all" data-lang-key="projects.filter.all">All</button>
+          <button class="filter-btn" data-filter="industrial" data-lang-key="projects.filter.industrial">Industrial</button>
+          <button class="filter-btn" data-filter="commercial" data-lang-key="projects.filter.commercial">Commercial</button>
+          <button class="filter-btn" data-filter="infrastructure" data-lang-key="projects.filter.infrastructure">Infrastructure</button>
+          <button class="filter-btn" data-filter="special" data-lang-key="projects.filter.special">Special</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 data-lang-key="projects.cta.title">Have a Project in Mind?</h2>
+        <p data-lang-key="projects.cta.description">Our engineering team is ready to collaborate on your next structural challenge.</p>
+        <a href="contact.html" class="btn" data-lang-key="projects.cta.button">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/images/icons/SEBA_LOGO.png" alt="SEBA Engineering Logo" width="150" height="auto">
+        <p class="footer-tagline" data-lang-key="footer.tagline">Shaping a better built environment</p>
+      </div>      <div class="footer-nav">
+        <h4 data-lang-key="footer.navigation">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" data-lang-key="home">Home</a></li>
+          <li><a href="about.html" data-lang-key="about">About</a></li>
+          <li><a href="services.html" data-lang-key="services">Services</a></li>
+          <li><a href="projects.html" data-lang-key="projects">Projects</a></li>
+          <li><a href="blog.html" data-lang-key="insights">Insights</a></li>
+          <li><a href="contact.html" data-lang-key="contact">Contact</a></li>
+        </ul>
+      </div>
+        <div class="footer-contact">
+        <h4 data-lang-key="footer.contactUs">Contact Us</h4>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</p>
+          <p><i class="fas fa-phone"></i> +90XXXXXXXXXX</p>
+          <p><i class="fas fa-envelope"></i> contact@selahattinbabadag.com</p>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://github.com/sbabadag" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/company/seba-engineering" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/sebaengineering" class="social-icon" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 SEBA Engineering & Consultancy. All rights reserved.</p>
+    </div>
   </footer>
+  <!-- JavaScript for project filtering -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Filter buttons functionality
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+      const projectItems = document.querySelectorAll('.project-item');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterBtns.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get filter value
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter project cards
+          if (filterValue === 'all') {
+            // Show all projects
+            projectCards.forEach(card => {
+              card.style.display = 'block';
+            });
+            projectItems.forEach(item => {
+              item.style.display = 'block';
+            });
+          } else {
+            // Show only filtered projects
+            projectCards.forEach(card => {
+              if (card.closest('section').id === filterValue) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+            
+            projectItems.forEach(item => {
+              if (item.classList.contains(filterValue)) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+      
+      // Project search functionality
+      const searchBtn = document.getElementById('search-btn');
+      const searchInput = document.getElementById('project-search');
+      
+      searchBtn.addEventListener('click', function() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        
+        if (searchTerm === '') {
+          // If search is empty, show all projects
+          projectCards.forEach(card => {
+            card.style.display = 'block';
+          });
+          projectItems.forEach(item => {
+            item.style.display = 'block';
+          });
+          return;
+        }
+        
+        // Filter project cards by search term
+        projectCards.forEach(card => {
+          const cardText = card.textContent.toLowerCase();
+          if (cardText.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Filter project items by search term
+        projectItems.forEach(item => {
+          const itemText = item.textContent.toLowerCase();
+          if (itemText.includes(searchTerm)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+      
+      // Allow search on Enter key press
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          searchBtn.click();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 
