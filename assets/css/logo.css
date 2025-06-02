@@ -2,14 +2,19 @@
 .logo img {
   max-width: 100%;
   height: auto;
-  mix-blend-mode: multiply; /* Helps with background blending */
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.1)); /* Subtle shadow */
+  /* Now with a transparent background: */
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.08)); /* Enhanced subtle shadow for depth */
+  transition: filter 0.3s ease;
+}
+
+.logo img:hover {
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.15)); /* Slightly stronger shadow on hover */
 }
 
 .footer-logo img {
   max-width: 100%;
   height: auto;
-  mix-blend-mode: multiply; /* Helps with background blending */
   filter: drop-shadow(0 0 1px rgba(0,0,0,0.1)); /* Subtle shadow */
   margin-bottom: 0.5rem;
+  transition: filter 0.3s ease;
 }
