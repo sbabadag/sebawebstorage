@@ -1,0 +1,134 @@
+{
+  "projects": [
+    {
+      "id": "industrial-steel-ankara",
+      "title": "Industrial Steel Facility",
+      "location": "Ankara, Turkey",
+      "category": "industrial",
+      "image": "assets/images/8558b156-95f4-4c15-831b-9b80c2de4a05.JPEG",
+      "description": "Large-scale manufacturing plant with advanced structural solutions for operational efficiency and seismic resilience.",
+      "featured": true,
+      "date": "2024-05-15"
+    },
+    {
+      "id": "commercial-center-istanbul",
+      "title": "Mixed-Use Commercial Center",
+      "location": "Istanbul, Turkey",
+      "category": "commercial",
+      "image": "assets/images/7c4a69d4-464e-4f32-a17f-48123e7bb476.JPEG",
+      "description": "Urban commercial development featuring innovative concrete core design and multi-level structural integration.",
+      "featured": true,
+      "date": "2024-03-10"
+    },
+    {
+      "id": "bridge-izmir",
+      "title": "Steel-Concrete Composite Bridge",
+      "location": "Izmir, Turkey",
+      "category": "infrastructure",
+      "image": "assets/images/4f1af8b1-185a-4c5d-9a85-47ac96a0de04.JPEG",
+      "description": "Transportation infrastructure featuring steel-concrete composite design with enhanced seismic resistance capabilities.",
+      "featured": true,
+      "date": "2023-11-22"
+    },
+    {
+      "id": "energy-facility-antalya",
+      "title": "Renewable Energy Facility",
+      "location": "Antalya, Turkey",
+      "category": "special",
+      "image": "assets/images/2ddbf2a8-dd62-4f34-bfa6-15208baf6690.JPEG",
+      "description": "Specialized structural engineering for a renewable energy production facility with sustainable design principles.",
+      "featured": true,
+      "date": "2023-09-05"
+    },
+    {
+      "id": "steel-hall-ankara",
+      "title": "Steel Hall Design – Ankara",
+      "location": "Ankara, Turkey",
+      "category": "industrial",
+      "image": "assets/images/design/5fc463d0-9e57-42a6-9af8-24b877711c8a.JPEG",
+      "description": "Large-span industrial facility with optimized structural efficiency",
+      "featured": false,
+      "date": "2023-08-15"
+    },
+    {
+      "id": "modular-manufacturing",
+      "title": "Modular Manufacturing Facility",
+      "location": "Istanbul, Turkey",
+      "category": "industrial",
+      "image": "assets/images/2786a985-ea94-4cd2-83bc-b427783e80ca.JPEG",
+      "description": "Advanced production plant with modular construction techniques",
+      "featured": false,
+      "date": "2023-06-20"
+    },
+    {
+      "id": "logistics-warehouse",
+      "title": "Logistics Warehouse – Istanbul",
+      "location": "Istanbul, Turkey",
+      "category": "industrial",
+      "image": "assets/images/36e738dd-a3e4-40b0-bb24-8d332f238fa1.JPEG",
+      "description": "Large-scale warehouse with optimized column spacing and loading capacity",
+      "featured": false,
+      "date": "2023-05-12"
+    },
+    {
+      "id": "office-tower",
+      "title": "Corporate Office Tower",
+      "location": "Istanbul, Turkey",
+      "category": "commercial",
+      "image": "assets/images/7c4a69d4-464e-4f32-a17f-48123e7bb476.JPEG",
+      "description": "Multi-story commercial building with innovative structural solutions",
+      "featured": false,
+      "date": "2023-04-03"
+    },
+    {
+      "id": "shopping-center",
+      "title": "Shopping Center – Istanbul",
+      "location": "Istanbul, Turkey",
+      "category": "commercial",
+      "image": "assets/images/2314f2e2-5780-43fc-b952-8a26e76e4b34.JPEG",
+      "description": "Retail complex with large-span roof structure and open floor plans",
+      "featured": false,
+      "date": "2023-01-25"
+    },
+    {
+      "id": "composite-bridge",
+      "title": "Composite Bridge Design",
+      "location": "Izmir, Turkey",
+      "category": "infrastructure",
+      "image": "assets/images/4f1af8b1-185a-4c5d-9a85-47ac96a0de04.JPEG",
+      "description": "Steel-concrete composite bridge with enhanced seismic performance",
+      "featured": false,
+      "date": "2022-11-14"
+    },
+    {
+      "id": "transit-terminal",
+      "title": "Transit Terminal",
+      "location": "Ankara, Turkey",
+      "category": "infrastructure",
+      "image": "assets/images/5b6693ee-6f7e-4717-a645-f9a1abbc1b0e.JPEG",
+      "description": "Transportation hub featuring long-span roof structures",
+      "featured": false,
+      "date": "2022-09-30"
+    },
+    {
+      "id": "facade-system",
+      "title": "Architectural Façade System",
+      "location": "Istanbul, Turkey",
+      "category": "special",
+      "image": "assets/images/2aa21e76-e96d-47e7-bba5-ebe6734ef30f.JPEG",
+      "description": "Complex geometrical façade with integrated structural support",
+      "featured": false,
+      "date": "2022-07-18"
+    },
+    {
+      "id": "energy-research",
+      "title": "Energy Research Facility",
+      "location": "Antalya, Turkey",
+      "category": "special",
+      "image": "assets/images/2ddbf2a8-dd62-4f34-bfa6-15208baf6690.JPEG",
+      "description": "Specialized structure with unique requirements for energy research",
+      "featured": false,
+      "date": "2022-05-09"
+    }
+  ]
+}
