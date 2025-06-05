@@ -108,10 +108,24 @@
             <label for="project-date">Completion Date</label>
             <input type="date" id="project-date" name="date" required>
           </div>
-          
-          <div class="form-group">
-            <label for="project-image">Image Path</label>
-            <input type="text" id="project-image" name="image" placeholder="assets/images/filename.jpg" required>
+            <div class="form-group">
+            <label for="project-image-upload">Project Image</label>
+            <div class="image-upload-container">
+              <input type="file" id="project-image-upload" name="image-upload" accept="image/*">
+              <div class="image-preview-container">
+                <img id="image-preview" src="" alt="Image Preview" style="display: none;">
+              </div>
+              <div class="upload-instructions">
+                <p>Drag & drop an image here or click to select</p>
+                <p class="file-info">Supported formats: JPG, PNG, GIF, WebP (Max 5MB)</p>
+              </div>
+              <div class="upload-progress" style="display: none;">
+                <div class="progress-bar"></div>
+                <span class="progress-text">Uploading... 0%</span>
+              </div>
+            </div>
+            <input type="hidden" id="project-image" name="image">
+            <div id="image-path-display" class="image-path-display"></div>
           </div>
           
           <div class="form-check">

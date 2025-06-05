@@ -214,9 +214,11 @@ document.addEventListener('DOMContentLoaded', async function() {
   
   // Render projects table
   renderProjectsTable();
-  
-  // Set up event listeners
+    // Set up event listeners
   setupEventListeners();
+  
+  // Initialize image upload functionality
+  initImageUpload();
 });
 
 /**
@@ -334,6 +336,18 @@ function openAddProjectModal() {
   document.getElementById('project-id').value = '';
   document.getElementById('modal-title').textContent = 'Add New Project';
   
+  // Reset image upload elements
+  const imagePreview = document.getElementById('image-preview');
+  const uploadInstructions = document.querySelector('.upload-instructions');
+  const imagePathDisplay = document.getElementById('image-path-display');
+  const uploadProgress = document.querySelector('.upload-progress');
+  
+  imagePreview.style.display = 'none';
+  uploadInstructions.style.display = 'block';
+  imagePathDisplay.textContent = '';
+  uploadProgress.style.display = 'none';
+  document.getElementById('project-image').value = '';
+  
   // Set today's date as default
   const today = new Date();
   document.getElementById('project-date').value = projectAdmin.formatDateForInput(today);
@@ -358,6 +372,22 @@ function openEditProjectModal(projectId) {
   document.getElementById('project-date').value = projectAdmin.formatDateForInput(project.date);
   document.getElementById('project-image').value = project.image;
   document.getElementById('project-featured').checked = project.featured;
+  
+  // Display current image
+  const imagePreview = document.getElementById('image-preview');
+  const uploadInstructions = document.querySelector('.upload-instructions');
+  const imagePathDisplay = document.getElementById('image-path-display');
+  
+  if (project.image) {
+    imagePreview.src = '../' + project.image;
+    imagePreview.style.display = 'block';
+    uploadInstructions.style.display = 'none';
+    imagePathDisplay.textContent = `Current image: ${project.image}`;
+  } else {
+    imagePreview.style.display = 'none';
+    uploadInstructions.style.display = 'block';
+    imagePathDisplay.textContent = '';
+  }
   
   // Update modal title
   document.getElementById('modal-title').textContent = 'Edit Project';
@@ -431,5 +461,183 @@ async function deleteProject() {
   if (success) {
     closeDeleteConfirmModal();
     renderProjectsTable();
+  }
+}
+
+/**
+ * Initialize image upload functionality
+ */
+function initImageUpload() {
+  const fileInput = document.getElementById('project-image-upload');
+  const imagePreview = document.getElementById('image-preview');
+  const uploadContainer = document.querySelector('.image-upload-container');
+  const uploadInstructions = document.querySelector('.upload-instructions');
+  const uploadProgress = document.querySelector('.upload-progress');
+  const progressBar = document.querySelector('.progress-bar');
+  const progressText = document.querySelector('.progress-text');
+  const imagePathDisplay = document.getElementById('image-path-display');
+  const hiddenInput = document.getElementById('project-image');
+
+  // Handle file selection
+  fileInput.addEventListener('change', function(e) {
+    handleFileSelection(this.files);
+  });
+
+  // Handle drag and drop
+  uploadContainer.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    uploadContainer.classList.add('drag-over');
+  });
+
+  uploadContainer.addEventListener('dragleave', function(e) {
+    e.preventDefault();
+    uploadContainer.classList.remove('drag-over');
+  });
+
+  uploadContainer.addEventListener('drop', function(e) {
+    e.preventDefault();
+    uploadContainer.classList.remove('drag-over');
+    handleFileSelection(e.dataTransfer.files);
+  });
+
+  // Function to handle file selection
+  function handleFileSelection(files) {
+    if (!files || files.length === 0) return;
+
+    const file = files[0];
+    
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/jpg'];
+    if (!validTypes.includes(file.type)) {
+      alert('Please select a valid image file (JPG, PNG, GIF, or WebP)');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('File is too large. Please select an image less than 5MB.');
+      return;
+    }
+
+    // Display preview
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      imagePreview.src = e.target.result;
+      imagePreview.style.display = 'block';
+      uploadInstructions.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+
+    // Upload the file
+    uploadFile(file);
+  }
+  // Function to upload file
+  async function uploadFile(file) {
+    const formData = new FormData();
+    formData.append('projectImage', file);
+
+    // Show progress bar
+    uploadProgress.style.display = 'block';
+    progressBar.style.width = '0%';
+    progressText.textContent = 'Uploading... 0%';
+
+    try {
+      const xhr = new XMLHttpRequest();
+      
+      // Progress handling
+      xhr.upload.addEventListener('progress', function(e) {
+        if (e.lengthComputable) {
+          const percentComplete = Math.round((e.loaded / e.total) * 100);
+          progressBar.style.width = percentComplete + '%';
+          progressText.textContent = `Uploading... ${percentComplete}%`;
+        }
+      });
+
+      // Setup completion handler
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try {
+            const response = JSON.parse(xhr.responseText);
+            
+            if (response.success) {
+              // Update hidden input with the file path
+              hiddenInput.value = response.filePath;
+              imagePathDisplay.textContent = `File uploaded: ${response.filePath}`;
+              
+              // Hide progress bar after a delay
+              setTimeout(() => {
+                uploadProgress.style.display = 'none';
+              }, 1500);
+            } else {
+              handleUploadFallback(file);
+            }
+          } catch (e) {
+            handleUploadFallback(file);
+          }
+        } else {
+          handleUploadFallback(file);
+        }
+      };
+
+      // Setup error handler
+      xhr.onerror = function() {
+        handleUploadFallback(file);
+      };
+
+      // Set a timeout to detect if the PHP upload is taking too long or not responding
+      const timeoutId = setTimeout(() => {
+        xhr.abort();
+        handleUploadFallback(file);
+      }, 5000); // 5 second timeout
+
+      // Send the request
+      xhr.open('POST', 'upload.php', true);
+      xhr.send(formData);
+
+      // Clear the timeout if the request completes normally
+      xhr.onloadend = function() {
+        clearTimeout(timeoutId);
+      };
+
+    } catch (error) {
+      handleUploadFallback(file);
+    }
+  }
+  
+  // Fallback for when server upload is not available
+  function handleUploadFallback(file) {
+    // Generate a client-side path for the file
+    const fileName = `image_${new Date().getTime()}_${file.name}`;
+    const clientPath = `assets/images/projects/${fileName}`;
+    
+    // Update hidden input with the file path
+    hiddenInput.value = clientPath;
+    
+    // Update the UI
+    uploadProgress.style.display = 'none';
+    imagePathDisplay.textContent = `Note: Server upload unavailable. Please manually move this file to: ${clientPath}`;
+    imagePathDisplay.style.color = '#ff6600';
+    
+    // Create a downloadable version of the file
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const downloadLink = document.createElement('a');
+      downloadLink.href = e.target.result;
+      downloadLink.download = fileName;
+      downloadLink.textContent = 'Download image file';
+      downloadLink.className = 'download-link';
+      downloadLink.style.display = 'block';
+      downloadLink.style.marginTop = '10px';
+      downloadLink.style.color = '#0066cc';
+      
+      // Remove any existing download link
+      const existingLink = imagePathDisplay.nextElementSibling;
+      if (existingLink && existingLink.className === 'download-link') {
+        existingLink.remove();
+      }
+      
+      imagePathDisplay.parentNode.insertBefore(downloadLink, imagePathDisplay.nextSibling);
+    };
+    reader.readAsDataURL(file);
   }
 }
