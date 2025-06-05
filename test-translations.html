@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Test</title>
+    <script src="assets/js/translations-fixed.js"></script>
+    <script src="assets/js/language-system-optimized.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 10px; border: 1px solid #ddd; }
+        .missing { background-color: #ffe6e6; }
+        .found { background-color: #e6ffe6; }
+        button { margin: 10px; padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h1>Translation System Test</h1>
+    
+    <div>
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('tr')">Turkish</button>
+        <button onclick="testAllKeys()">Test All Keys</button>
+    </div>
+    
+    <div id="current-lang">Current Language: <span id="lang-display">en</span></div>
+    
+    <div class="test-section">
+        <h2>Navigation Test</h2>
+        <div data-lang-key="home">Home</div>
+        <div data-lang-key="about">About</div>
+        <div data-lang-key="services">Services</div>
+        <div data-lang-key="projects">Projects</div>
+        <div data-lang-key="insights">Insights</div>
+        <div data-lang-key="contact">Contact</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Projects Page Test</h2>
+        <div data-lang-key="projects.heroTitle">Our Engineering Projects</div>
+        <div data-lang-key="projects.heroDescription">Discover our work...</div>
+        <div data-lang-key="projects.categoriesTitle">Explore Projects By Sector</div>
+        <div data-lang-key="projects.categories.industrial">Industrial</div>
+        <div data-lang-key="projects.categories.commercial">Commercial</div>
+        <div data-lang-key="projects.cta.title">Have a Project in Mind?</div>
+        <div data-lang-key="projects.cta.button">Contact Us</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Contact Page Test</h2>
+        <div data-lang-key="contact.title">Contact Us</div>
+        <div data-lang-key="contact.info.title">Get in Touch</div>
+        <div data-lang-key="contact.email.label">Email:</div>
+        <div data-lang-key="contact.phone.label">Phone:</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Blog Page Test</h2>
+        <div data-lang-key="blog.title">Engineering Insights</div>
+        <div data-lang-key="blog.subtitle">Latest Articles</div>
+        <div data-lang-key="blog.articles.durability.title">Designing for Durability:</div>
+    </div>
+    
+    <div id="test-results"></div>
+    
+    <script>
+        function testAllKeys() {
+            const elements = document.querySelectorAll('[data-lang-key]');
+            const currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+            const results = [];
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                const translation = getTranslation(key, currentLang);
+                
+                if (translation === key) {
+                    // Translation not found
+                    element.classList.add('missing');
+                    element.classList.remove('found');
+                    results.push(`❌ Missing: ${key}`);
+                } else {
+                    element.classList.add('found');
+                    element.classList.remove('missing');
+                    results.push(`✅ Found: ${key} = "${translation}"`);
+                }
+            });
+            
+            document.getElementById('test-results').innerHTML = 
+                '<h3>Test Results:</h3><pre>' + results.join('\n') + '</pre>';
+        }
+        
+        function getTranslation(key, lang) {
+            if (!window.TRANSLATIONS || !window.TRANSLATIONS[lang]) {
+                return key;
+            }
+            return window.TRANSLATIONS[lang][key] || key;
+        }
+        
+        // Update language display when language changes
+        document.addEventListener('languageChanged', function(event) {
+            document.getElementById('lang-display').textContent = event.detail.language;
+            testAllKeys();
+        });
+        
+        // Run initial test
+        setTimeout(testAllKeys, 1000);
+    </script>
+</body>
+</html>
