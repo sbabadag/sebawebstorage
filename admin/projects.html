@@ -7,10 +7,11 @@
   <title>Project Management | SEBA Engineering & Consultancy</title>
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
   
-  <link rel="stylesheet" href="../assets/css/arup-inspired.css" />
-  <link rel="stylesheet" href="../assets/css/project-admin.css" />
+  <link rel="stylesheet" href="../assets/css/arup-inspired.css" />  <link rel="stylesheet" href="../assets/css/project-admin.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
   <!-- Header Section -->
@@ -21,11 +22,17 @@
           <img src="../assets/images/icons/SEBA_LOGO.png" alt="SEBA Engineering Logo" width="180" height="auto">
         </a>
       </div>
+      <button class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div class="nav-links">
         <a href="../index.html">Home</a>
         <a href="../projects.html">Projects</a>
         <a href="./projects.html" class="active">Admin</a>
         <a href="#" id="logout-link">Logout</a>
+        <a href="#" id="change-password-btn"><i class="fas fa-key"></i> Change Password</a>
       </div>
     </div>
   </header>
@@ -180,8 +187,36 @@
       </div>
     </div>
   </div>
-  
+    <!-- Password Change Modal -->
+  <div id="password-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Change Password</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="password-form" class="admin-form">
+          <div class="form-group">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" name="current-password" required>
+          </div>
+          <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="new-password" required minlength="12">
+            <small>Minimum 12 characters</small>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm New Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required minlength="12">
+          </div>
+          <button type="submit" class="admin-btn">Change Password</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="../assets/js/project-admin.js" defer></script>
+  <script src="../assets/js/mobile-menu.js" defer></script>
+  <script src="../assets/js/secure-admin.js" defer></script>
 </body>
 </html>

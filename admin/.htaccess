@@ -1,0 +1,44 @@
+# Secure admin directory
+
+# Disable directory listing
+Options -Indexes
+
+# Block access to sensitive files
+<FilesMatch "^(settings\.php)">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Only allow access to specific file types
+<FilesMatch "^.*\.(php|html|js|css)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Prevent script execution in uploads directory
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^uploads/.*\.(php|pl|py|jsp|asp|sh|cgi)$ - [F]
+</IfModule>
+
+# Additional security headers
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection in browsers
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# PHP settings for better security
+<IfModule mod_php7.c>
+    php_flag display_errors off
+    php_value error_reporting 0
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_flag session.use_strict_mode on
+    php_flag session.use_only_cookies on
+</IfModule>

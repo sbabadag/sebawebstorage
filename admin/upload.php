@@ -1,7 +1,31 @@
 <?php
 /**
- * Simple file upload handler for the SEBA Engineering project management system
+ * Secure file upload handler for the SEBA Engineering project management system
+ * Includes authentication and security checks
  */
+
+// Include authentication controller
+require_once 'auth.php';
+
+// Check if user is authenticated
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'success' => false,
+        'message' => 'Authentication required'
+    ]);
+    exit;
+}
+
+// Verify CSRF token
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'success' => false,
+        'message' => 'Security validation failed'
+    ]);
+    exit;
+}
 
 // Define allowed file types and max size
 $allowed_types = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp'];
@@ -11,7 +35,8 @@ $max_size = 5 * 1024 * 1024; // 5MB
 $response = [
     'success' => false,
     'message' => '',
-    'filePath' => ''
+    'filePath' => '',
+    'csrf_token' => $_SESSION['csrf_token']
 ];
 
 // Check if file was uploaded
