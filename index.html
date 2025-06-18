@@ -40,9 +40,24 @@
   <meta name="twitter:description" content="Expert structural engineering solutions for steel and concrete structures. Precision in structural design, manufacturing, and site erection." />
   <meta name="twitter:image" content="https://selahattinbabadag.com/assets/images/c4cc46a6-6116-4478-a979-e9f52d58f29e.JPEG" />
 
-  <!-- Load scripts for language system -->
-  <script src="assets/js/translations-fixed.js"></script>
+  <!-- Load scripts for language system -->  <script src="assets/js/translations-fixed.js"></script>
   <script src="assets/js/language-system-optimized.js"></script>
+  
+  <!-- Newsletter Form Submission Tracking -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function () {
+          gtag('event', 'newsletter_subscription', {
+            event_category: 'form',
+            event_label: 'newsletter_form',
+            value: 1
+          });
+        });
+      }
+    });
+  </script>
 
   <!-- JSON-LD structured data for better search results -->
   <script type="application/ld+json">
